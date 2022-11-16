@@ -6,7 +6,7 @@
 
 <%= form_tag addcourses_path, class: 'form' do %>
     <%= label :addcourse, :course, 'Course', :class => 'col-form-label' %>
-    <%= text_field :addcourse, :course, :class => 'form-control' %>
+    <%= collection_select :addcourse, :course, Course.all, :course, :course, prompt: true, :class => 'form-control' %>
 
     <%= label :addcourse, :semester, 'Semester', class: 'col-form-label'  %>
     <%= select :addcourse, :semester, ['Fall', 'Spring'], {}, {class: 'form-control col-1'} %>
