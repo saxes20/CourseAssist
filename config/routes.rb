@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resource :users
   resource :addcourses
   resource :dashboards
+  resource :courses
   get "/addcourses", to: "addcourses#index"
-  
+
 end
