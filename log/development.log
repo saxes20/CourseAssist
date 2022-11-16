@@ -1,0 +1,18 @@
+  [1m[35m (223.3ms)[0m  [1m[35mCREATE DATABASE "courseassist_development" ENCODING = 'unicode'[0m
+  [1m[35m (104.8ms)[0m  [1m[35mCREATE DATABASE "courseassist_test" ENCODING = 'unicode'[0m
+Started GET "/" for 127.0.0.1 at 2022-11-16 16:13:32 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/sameer/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sameer/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.3ms | Allocations: 673)
+Completed 200 OK in 32ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 6564)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-16 16:16:59 -0500
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 336)
+  Rendered layout layouts/application.html.erb (Duration: 355.7ms | Allocations: 103746)
+Completed 200 OK in 366ms (Views: 360.3ms | ActiveRecord: 0.0ms | Allocations: 107655)
+
+
