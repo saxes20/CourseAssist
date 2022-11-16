@@ -1,0 +1,16 @@
+<h1>CourseAssist</h1>
+<p>Superior class selection</p>
+
+<%= link_to 'Sign Up', users_path %>
+<p>or</p> <br>
+<p>Enter your uni: </p>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<%= form_tag dashboards_path, :class => 'form' do %>
+  <%= label :user, :uni, 'UNI', :class => 'col-form-label' %>
+  <%= text_field :user, 'uni', :class => 'form-control' %>
+  <%= submit_tag 'Enter', :class => 'btn btn-primary' %>
+<% end %>

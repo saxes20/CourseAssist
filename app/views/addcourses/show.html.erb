@@ -1,0 +1,10 @@
+<h1>Details about <em><%= @uni %></em></h1>
+
+<%= link_to 'Back to Homepage', users_path %>
+<%= label :course, 'Course:', :class => 'col-form-label' %>
+<%= text_field :course, 'course', :class => 'form-control' %>
+
+<%= label :semester, :semester, 'Semester: ', :class => 'col-form-label'  %>
+<%= select :semester, :semester, ['F18','S19','F19','S20','F20','S21','F21','S22','F22'], {}, {:class => 'form-control col-1'} %>
+
+<%= submit_tag 'Next', :class => 'btn btn-primary' %>
