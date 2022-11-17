@@ -26,7 +26,7 @@
 
 <h3>Search for class</h3>
 <%= form_tag(dashboards_path, method: :get) do %>
-  <%= text_field_tag :search, params[:search] %>
+  <%= text_field_tag :search, params[:search], id: 'searchbar' %>
   <%= submit_tag "Search", name: nil %>
 <% end %>
 <% @courses.each do |course| %>

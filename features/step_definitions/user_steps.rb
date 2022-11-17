@@ -7,6 +7,36 @@ Given /the following users exist/ do |users_table|
   end
 end
 
+Given /the following courses exist/ do |courses_table|
+  courses_table.hashes.each do |course|
+    Course.create(course)
+  end
+end
+
+Given /the following addcourses exist/ do |acourses_table|
+  acourses_table.hashes.each do |acourse|
+    Addcourse.create(acourse)
+  end
+end
+
+Given /the following schoolreqs exist/ do |schoolreqs_table|
+  schoolreqs_table.hashes.each do |sqr|
+    Schoolreq.create(sqr)
+  end
+end
+
+Given /the following majorreqs exist/ do |majorreqs_table|
+  majorreqs_table.hashes.each do |mjr|
+    Majorreq.create(mjr)
+  end
+end
+
+Given /the following minreqs exist/ do |minorreqs_table|
+  minorreqs_table.hashes.each do |mnr|
+    Minorreq.create(mnr)
+  end
+end
+
 Then /^the major of "(.+)" should be "(.+)"/ do |uni, major|
   user = User.find_by(uni: uni)
   expect(user.major).to match(major)
