@@ -6573,3 +6573,1031 @@ Processing by DashboardsController#show as TURBO_STREAM
 Completed 200 OK in 37ms (Views: 12.8ms | ActiveRecord: 2.9ms | Allocations: 8195)
 
 
+Started GET "/" for 127.0.0.1 at 2022-11-16 23:39:22 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1682)
+  Rendered layout layouts/application.html.erb (Duration: 67.5ms | Allocations: 36296)
+Completed 200 OK in 83ms (Views: 72.0ms | ActiveRecord: 0.0ms | Allocations: 41151)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-16 23:39:33 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 785)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-16 23:39:33 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2340)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4554)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 5286)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 23:39:37 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first"=>"Sameer", "last"=>"Saxena", "uni"=>"ss6167", "year"=>"2026", "school"=>"CC", "major"=>"Computer Science", "minor"=>"Computer Science"}, "commit"=>"Next"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first", "last", "year", "school", "major", "minor", "uni", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first", "Sameer"], ["last", "Saxena"], ["year", 2026], ["school", "CC"], ["major", "Computer Science"], ["minor", "Computer Science"], ["uni", "ss6167"], ["created_at", "2022-11-17 04:39:37.756731"], ["updated_at", "2022-11-17 04:39:37.756731"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 35ms (ActiveRecord: 7.3ms | Allocations: 20691)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-16 23:39:37 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-16 23:39:37 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 27.8ms | Allocations: 19932)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 22161)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 2.5ms | Allocations: 22943)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (3.7ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Principles of Economics"], ["course", "ECON UN1105 Principles of Economics"], ["prof", "Sunil Gulati"], ["preReqs", "None"], ["description", "How a market economy determines the relative prices of goods, factors of production, and the allocation of resources and the circumstances under which it does it efficiently. Why such an economy has fluctuations and how they may becontrolled."], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.013129"], ["updated_at", "2022-11-17 04:41:13.013129"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "The Art of Engineering"], ["course", "ENGI E1102 The Art of Engineering"], ["prof", "David Vallancourt"], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.020685"], ["updated_at", "2022-11-17 04:41:13.020685"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Masterpieces of Western Art"], ["course", "HUMA UN1121 Masterpieces of Western Art"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.023623"], ["updated_at", "2022-11-17 04:41:13.023623"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Masterpieces of Western Music"], ["course", "HUMA UN1123 Masterpieces of Western Music"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.026482"], ["updated_at", "2022-11-17 04:41:13.026482"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Advanced Programming"], ["course", "COMS 3157 Advanced Programming"], ["prof", "Jae Woo Lee"], ["preReqs", "(COMS W3134) or (COMS W3137)"], ["description", "C programming language and Unix systems programming. Also covers Git, Make, TCP/IP networking basics, C++ fundamentals."], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.029513"], ["updated_at", "2022-11-17 04:41:13.029513"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.6ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Discrete Math"], ["course", "COMS 3203 Discrete Math"], ["prof", "Ansaf Salleb-Aboussai"], ["preReqs", "Any introductory course in computer programming"], ["description", "Logic and formal proofs, sequences and summation, mathematical induction, binomial coefficients, elements of finite probability, recurrence relations, equivalence relations and partial orderings, and topics in graph theory (including isomorphism, traversability, planarity, and colorings)."], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.032444"], ["updated_at", "2022-11-17 04:41:13.032444"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Engineering SaaS"], ["course", "COMS 4152 Engineering SaaS"], ["prof", "Junfeng Yang"], ["preReqs", ""], ["description", ""], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.040197"], ["updated_at", "2022-11-17 04:41:13.040197"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Intermediate Microeconomics"], ["course", "ECON UN3211 Intermediate Microeconomics"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.043313"], ["updated_at", "2022-11-17 04:41:13.043313"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN3213 Intermediate Macroeconomics"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.046127"], ["updated_at", "2022-11-17 04:41:13.046127"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (1.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN3412 Intro to Econometrics"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.048911"], ["updated_at", "2022-11-17 04:41:13.048911"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "COMS W3134 Data Structures in Java"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.053217"], ["updated_at", "2022-11-17 04:41:13.053217"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "COMS W1004 Intro to Programming in Java"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.056551"], ["updated_at", "2022-11-17 04:41:13.056551"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "COMS W3261 Computer Science Theory"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.059557"], ["updated_at", "2022-11-17 04:41:13.059557"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "COMS W3827 Fundamentals of Computer Systems"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.063620"], ["updated_at", "2022-11-17 04:41:13.063620"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN2105 The American Economy"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.066911"], ["updated_at", "2022-11-17 04:41:13.066911"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (1.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN2257 Global Economy"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.069649"], ["updated_at", "2022-11-17 04:41:13.069649"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN3025 Financial Economics"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:41:13.074285"], ["updated_at", "2022-11-17 04:41:13.074285"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (4.9ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "SEAS"], ["course", "ECON UN1105 Principles of Economics"], ["created_at", "2022-11-17 04:41:13.089952"], ["updated_at", "2022-11-17 04:41:13.089952"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.4ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "SEAS"], ["course", "ENGI E1102 The Art of Engineering"], ["created_at", "2022-11-17 04:41:13.098155"], ["updated_at", "2022-11-17 04:41:13.098155"]]
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.3ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "CC"], ["course", "HUMA UN1121 Masterpieces of Western Art"], ["created_at", "2022-11-17 04:41:13.107826"], ["updated_at", "2022-11-17 04:41:13.107826"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.4ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "CC"], ["course", "HUMA UN1123 Masterpieces of Western Music"], ["created_at", "2022-11-17 04:41:13.111617"], ["updated_at", "2022-11-17 04:41:13.111617"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.6ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN1105 Principles of Economics"], ["created_at", "2022-11-17 04:41:13.127703"], ["updated_at", "2022-11-17 04:41:13.127703"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3211 Intermediate Microeconomics"], ["created_at", "2022-11-17 04:41:13.131905"], ["updated_at", "2022-11-17 04:41:13.131905"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3213 Intermediate Macroeconomics"], ["created_at", "2022-11-17 04:41:13.135254"], ["updated_at", "2022-11-17 04:41:13.135254"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3412 Intro to Econometrics"], ["created_at", "2022-11-17 04:41:13.138217"], ["updated_at", "2022-11-17 04:41:13.138217"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (1.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN2105 The American Economy"], ["created_at", "2022-11-17 04:41:13.141269"], ["updated_at", "2022-11-17 04:41:13.141269"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN2257 Global Economy"], ["created_at", "2022-11-17 04:41:13.145502"], ["updated_at", "2022-11-17 04:41:13.145502"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3025 Financial Economics"], ["created_at", "2022-11-17 04:41:13.148192"], ["updated_at", "2022-11-17 04:41:13.148192"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W1004 Intro to Programming in Java"], ["created_at", "2022-11-17 04:41:13.150706"], ["updated_at", "2022-11-17 04:41:13.150706"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3134 Data Structures in Java"], ["created_at", "2022-11-17 04:41:13.153492"], ["updated_at", "2022-11-17 04:41:13.153492"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3157 Advanced Programming"], ["created_at", "2022-11-17 04:41:13.156331"], ["updated_at", "2022-11-17 04:41:13.156331"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3203 Discrete Math"], ["created_at", "2022-11-17 04:41:13.159211"], ["updated_at", "2022-11-17 04:41:13.159211"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3261 Computer Science Theory"], ["created_at", "2022-11-17 04:41:13.161905"], ["updated_at", "2022-11-17 04:41:13.161905"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3827 Fundamentals of Computer Systems"], ["created_at", "2022-11-17 04:41:13.164757"], ["updated_at", "2022-11-17 04:41:13.164757"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (1.5ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN1105 Principles of Economics"], ["created_at", "2022-11-17 04:41:13.174308"], ["updated_at", "2022-11-17 04:41:13.174308"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.4ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3211 Intermediate Microeconomics"], ["created_at", "2022-11-17 04:41:13.179075"], ["updated_at", "2022-11-17 04:41:13.179075"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3213 Intermediate Macroeconomics"], ["created_at", "2022-11-17 04:41:13.182332"], ["updated_at", "2022-11-17 04:41:13.182332"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3412 Intro to Econometrics"], ["created_at", "2022-11-17 04:41:13.185075"], ["updated_at", "2022-11-17 04:41:13.185075"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W1004 Intro to Programming in Java"], ["created_at", "2022-11-17 04:41:13.187704"], ["updated_at", "2022-11-17 04:41:13.187704"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3134 Data Structures in Java"], ["created_at", "2022-11-17 04:41:13.190376"], ["updated_at", "2022-11-17 04:41:13.190376"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3157 Advanced Programming"], ["created_at", "2022-11-17 04:41:13.193919"], ["updated_at", "2022-11-17 04:41:13.193919"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.4ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3203 Discrete Math"], ["created_at", "2022-11-17 04:41:13.197312"], ["updated_at", "2022-11-17 04:41:13.197312"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2022-11-16 23:41:51 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1681)
+  Rendered layout layouts/application.html.erb (Duration: 58.4ms | Allocations: 36260)
+Completed 200 OK in 69ms (Views: 61.7ms | ActiveRecord: 0.0ms | Allocations: 41111)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-16 23:41:54 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 785)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-16 23:41:54 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2330)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 4544)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 5276)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 23:41:58 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first"=>"Sameer", "last"=>"Saxena", "uni"=>"ss6167", "year"=>"2026", "school"=>"CC", "major"=>"Computer Science", "minor"=>"Computer Science"}, "commit"=>"Next"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first", "last", "year", "school", "major", "minor", "uni", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first", "Sameer"], ["last", "Saxena"], ["year", 2026], ["school", "CC"], ["major", "Computer Science"], ["minor", "Computer Science"], ["uni", "ss6167"], ["created_at", "2022-11-17 04:41:58.732361"], ["updated_at", "2022-11-17 04:41:58.732361"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 22ms (ActiveRecord: 5.1ms | Allocations: 20689)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-16 23:41:58 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-16 23:41:58 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 23.6ms | Allocations: 20571)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 22784)
+Completed 200 OK in 32ms (Views: 26.4ms | ActiveRecord: 3.1ms | Allocations: 23565)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-16 23:42:12 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.5ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.3ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.3ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Economics"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "ECON UN1105 Principles of Economics"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "ECON UN3211 Intermediate Microeconomics"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "ECON UN1105 Principles of Economics"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "ECON UN3211 Intermediate Microeconomics"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "ECON UN3213 Intermediate Macroeconomics"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "ECON UN3412 Intro to Econometrics"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mMajorreq Load (0.3ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3157 Advanced Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W1004 Intro to Programming in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3134 Data Structures in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3157 Advanced Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3261 Computer Science Theory"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3827 Fundamentals of Computer Systems"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2999)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3067)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 16.1ms | Allocations: 45256)
+
+
+  
+ActionView::Template::Error (undefined method `course' for nil:NilClass):
+    32: 
+    33: <h4>Major Requirements:</h4>
+    34: <% @major_reqs.each do |mjr| %>
+    35:   <p><%= link_to mjr.course, courses_path(:id => mjr.id) %></p>
+    36: <% end %>
+    37: 
+    38: <% if not @min_reqs =="NA" %>
+  
+app/views/dashboards/show.html.erb:35
+app/views/dashboards/show.html.erb:34:in `each'
+app/views/dashboards/show.html.erb:34
+Started GET "/" for 127.0.0.1 at 2022-11-16 23:42:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1681)
+  Rendered layout layouts/application.html.erb (Duration: 50.8ms | Allocations: 36603)
+Completed 200 OK in 63ms (Views: 54.4ms | ActiveRecord: 0.0ms | Allocations: 41454)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-16 23:42:51 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 785)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-16 23:42:51 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2338)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 4552)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 5284)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 23:42:57 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first"=>"Sameer", "last"=>"Saxena", "uni"=>"jr3876", "year"=>"2026", "school"=>"CC", "major"=>"Computer Science", "minor"=>"Computer Science"}, "commit"=>"Next"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first", "last", "year", "school", "major", "minor", "uni", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first", "Sameer"], ["last", "Saxena"], ["year", 2026], ["school", "CC"], ["major", "Computer Science"], ["minor", "Computer Science"], ["uni", "jr3876"], ["created_at", "2022-11-17 04:42:57.669603"], ["updated_at", "2022-11-17 04:42:57.669603"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 26ms (ActiveRecord: 6.0ms | Allocations: 20709)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-16 23:42:57 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-16 23:42:57 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 17.8ms | Allocations: 20579)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 22792)
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 2.6ms | Allocations: 23573)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-16 23:43:01 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "jr3876"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.4ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "jr3876"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.4ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.4ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W1004 Intro to Programming in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3134 Data Structures in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3157 Advanced Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mMajorreq Load (0.3ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3157 Advanced Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W1004 Intro to Programming in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3134 Data Structures in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3157 Advanced Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3261 Computer Science Theory"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3827 Fundamentals of Computer Systems"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 3152)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 3220)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 12.5ms | Allocations: 32453)
+
+
+  
+ActionView::Template::Error (undefined method `course' for nil:NilClass):
+    32: 
+    33: <h4>Major Requirements:</h4>
+    34: <% @major_reqs.each do |mjr| %>
+    35:   <p><%= link_to mjr.course, courses_path(:id => mjr.id) %></p>
+    36: <% end %>
+    37: 
+    38: <% if not @min_reqs =="NA" %>
+  
+app/views/dashboards/show.html.erb:35
+app/views/dashboards/show.html.erb:34:in `each'
+app/views/dashboards/show.html.erb:34
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Delete All (0.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mCourse Delete All (1.3ms)[0m  [1m[31mDELETE FROM "courses"[0m
+  [1m[36mMajorreq Delete All (1.4ms)[0m  [1m[31mDELETE FROM "majorreqs"[0m
+  [1m[36mAddcourse Delete All (1.8ms)[0m  [1m[31mDELETE FROM "addcourses"[0m
+  [1m[36mMinorreq Delete All (1.3ms)[0m  [1m[31mDELETE FROM "minorreqs"[0m
+  [1m[36mSchoolreq Delete All (1.9ms)[0m  [1m[31mDELETE FROM "schoolreqs"[0m
+Started GET "/" for 127.0.0.1 at 2022-11-16 23:45:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1677)
+  Rendered layout layouts/application.html.erb (Duration: 65.4ms | Allocations: 36556)
+Completed 200 OK in 91ms (Views: 73.7ms | ActiveRecord: 0.0ms | Allocations: 41407)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-16 23:45:08 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 785)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-16 23:45:09 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2334)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4548)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 5280)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 23:45:16 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first"=>"Sameer", "last"=>"Saxena", "uni"=>"ss6167", "year"=>"2026", "school"=>"SEAS", "major"=>"Computer Science", "minor"=>"Computer Science"}, "commit"=>"Next"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first", "last", "year", "school", "major", "minor", "uni", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first", "Sameer"], ["last", "Saxena"], ["year", 2026], ["school", "SEAS"], ["major", "Computer Science"], ["minor", "Computer Science"], ["uni", "ss6167"], ["created_at", "2022-11-17 04:45:16.153253"], ["updated_at", "2022-11-17 04:45:16.153253"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 32ms (ActiveRecord: 5.2ms | Allocations: 20702)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-16 23:45:16 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-16 23:45:16 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 15.4ms | Allocations: 3682)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 5911)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.5ms | Allocations: 6693)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8805789462907156440)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8805789462907156440)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.8ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Principles of Economics"], ["course", "ECON UN1105 Principles of Economics"], ["prof", "Sunil Gulati"], ["preReqs", "None"], ["description", "How a market economy determines the relative prices of goods, factors of production, and the allocation of resources and the circumstances under which it does it efficiently. Why such an economy has fluctuations and how they may becontrolled."], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.211376"], ["updated_at", "2022-11-17 04:45:31.211376"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "The Art of Engineering"], ["course", "ENGI E1102 The Art of Engineering"], ["prof", "David Vallancourt"], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.216818"], ["updated_at", "2022-11-17 04:45:31.216818"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Masterpieces of Western Art"], ["course", "HUMA UN1121 Masterpieces of Western Art"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.220344"], ["updated_at", "2022-11-17 04:45:31.220344"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Masterpieces of Western Music"], ["course", "HUMA UN1123 Masterpieces of Western Music"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.224932"], ["updated_at", "2022-11-17 04:45:31.224932"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Advanced Programming"], ["course", "COMS 3157 Advanced Programming"], ["prof", "Jae Woo Lee"], ["preReqs", "(COMS W3134) or (COMS W3137)"], ["description", "C programming language and Unix systems programming. Also covers Git, Make, TCP/IP networking basics, C++ fundamentals."], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.229830"], ["updated_at", "2022-11-17 04:45:31.229830"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Discrete Math"], ["course", "COMS 3203 Discrete Math"], ["prof", "Ansaf Salleb-Aboussai"], ["preReqs", "Any introductory course in computer programming"], ["description", "Logic and formal proofs, sequences and summation, mathematical induction, binomial coefficients, elements of finite probability, recurrence relations, equivalence relations and partial orderings, and topics in graph theory (including isomorphism, traversability, planarity, and colorings)."], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.234304"], ["updated_at", "2022-11-17 04:45:31.234304"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Engineering SaaS"], ["course", "COMS 4152 Engineering SaaS"], ["prof", "Junfeng Yang"], ["preReqs", ""], ["description", ""], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.237792"], ["updated_at", "2022-11-17 04:45:31.237792"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Intermediate Microeconomics"], ["course", "ECON UN3211 Intermediate Microeconomics"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.248200"], ["updated_at", "2022-11-17 04:45:31.248200"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN3213 Intermediate Macroeconomics"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.251849"], ["updated_at", "2022-11-17 04:45:31.251849"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.9ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN3412 Intro to Econometrics"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.255814"], ["updated_at", "2022-11-17 04:45:31.255814"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "COMS W3134 Data Structures in Java"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.261265"], ["updated_at", "2022-11-17 04:45:31.261265"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "COMS W1004 Intro to Programming in Java"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.264486"], ["updated_at", "2022-11-17 04:45:31.264486"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "COMS W3261 Computer Science Theory"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.267439"], ["updated_at", "2022-11-17 04:45:31.267439"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "COMS W3827 Fundamentals of Computer Systems"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.270116"], ["updated_at", "2022-11-17 04:45:31.270116"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.6ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN2105 The American Economy"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.274079"], ["updated_at", "2022-11-17 04:45:31.274079"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN2257 Global Economy"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.278765"], ["updated_at", "2022-11-17 04:45:31.278765"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", nil], ["course", "ECON UN3025 Financial Economics"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:45:31.281671"], ["updated_at", "2022-11-17 04:45:31.281671"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.5ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "SEAS"], ["course", "ECON UN1105 Principles of Economics"], ["created_at", "2022-11-17 04:45:31.297845"], ["updated_at", "2022-11-17 04:45:31.297845"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.2ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "SEAS"], ["course", "ENGI E1102 The Art of Engineering"], ["created_at", "2022-11-17 04:45:31.301590"], ["updated_at", "2022-11-17 04:45:31.301590"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.4ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "CC"], ["course", "HUMA UN1121 Masterpieces of Western Art"], ["created_at", "2022-11-17 04:45:31.304497"], ["updated_at", "2022-11-17 04:45:31.304497"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.4ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "CC"], ["course", "HUMA UN1123 Masterpieces of Western Music"], ["created_at", "2022-11-17 04:45:31.308908"], ["updated_at", "2022-11-17 04:45:31.308908"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.6ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN1105 Principles of Economics"], ["created_at", "2022-11-17 04:45:31.323677"], ["updated_at", "2022-11-17 04:45:31.323677"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3211 Intermediate Microeconomics"], ["created_at", "2022-11-17 04:45:31.329426"], ["updated_at", "2022-11-17 04:45:31.329426"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3213 Intermediate Macroeconomics"], ["created_at", "2022-11-17 04:45:31.332698"], ["updated_at", "2022-11-17 04:45:31.332698"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3412 Intro to Econometrics"], ["created_at", "2022-11-17 04:45:31.335844"], ["updated_at", "2022-11-17 04:45:31.335844"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.5ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN2105 The American Economy"], ["created_at", "2022-11-17 04:45:31.338895"], ["updated_at", "2022-11-17 04:45:31.338895"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN2257 Global Economy"], ["created_at", "2022-11-17 04:45:31.343614"], ["updated_at", "2022-11-17 04:45:31.343614"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3025 Financial Economics"], ["created_at", "2022-11-17 04:45:31.346794"], ["updated_at", "2022-11-17 04:45:31.346794"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W1004 Intro to Programming in Java"], ["created_at", "2022-11-17 04:45:31.349608"], ["updated_at", "2022-11-17 04:45:31.349608"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3134 Data Structures in Java"], ["created_at", "2022-11-17 04:45:31.352456"], ["updated_at", "2022-11-17 04:45:31.352456"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (1.7ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3157 Advanced Programming"], ["created_at", "2022-11-17 04:45:31.355894"], ["updated_at", "2022-11-17 04:45:31.355894"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3203 Discrete Math"], ["created_at", "2022-11-17 04:45:31.361896"], ["updated_at", "2022-11-17 04:45:31.361896"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3261 Computer Science Theory"], ["created_at", "2022-11-17 04:45:31.365019"], ["updated_at", "2022-11-17 04:45:31.365019"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3827 Fundamentals of Computer Systems"], ["created_at", "2022-11-17 04:45:31.368106"], ["updated_at", "2022-11-17 04:45:31.368106"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.5ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN1105 Principles of Economics"], ["created_at", "2022-11-17 04:45:31.378651"], ["updated_at", "2022-11-17 04:45:31.378651"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3211 Intermediate Microeconomics"], ["created_at", "2022-11-17 04:45:31.382819"], ["updated_at", "2022-11-17 04:45:31.382819"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3213 Intermediate Macroeconomics"], ["created_at", "2022-11-17 04:45:31.385653"], ["updated_at", "2022-11-17 04:45:31.385653"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.6ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3412 Intro to Econometrics"], ["created_at", "2022-11-17 04:45:31.388598"], ["updated_at", "2022-11-17 04:45:31.388598"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.5ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W1004 Intro to Programming in Java"], ["created_at", "2022-11-17 04:45:31.394637"], ["updated_at", "2022-11-17 04:45:31.394637"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3134 Data Structures in Java"], ["created_at", "2022-11-17 04:45:31.398679"], ["updated_at", "2022-11-17 04:45:31.398679"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.4ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3157 Advanced Programming"], ["created_at", "2022-11-17 04:45:31.402245"], ["updated_at", "2022-11-17 04:45:31.402245"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.6ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS W3203 Discrete Math"], ["created_at", "2022-11-17 04:45:31.406512"], ["updated_at", "2022-11-17 04:45:31.406512"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2022-11-16 23:47:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1727)
+  Rendered layout layouts/application.html.erb (Duration: 54.9ms | Allocations: 36648)
+Completed 200 OK in 72ms (Views: 59.6ms | ActiveRecord: 0.0ms | Allocations: 41499)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-16 23:47:37 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 785)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-16 23:47:37 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2375)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4589)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 5321)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-16 23:47:47 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 182)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-16 23:47:47 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1634)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3840)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 4085)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 23:47:54 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first"=>"Jackson", "last"=>"Roberts", "uni"=>"ss6166", "year"=>"2026", "school"=>"CC", "major"=>"Computer Science", "minor"=>"Computer Science"}, "commit"=>"Next"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first", "last", "year", "school", "major", "minor", "uni", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first", "Jackson"], ["last", "Roberts"], ["year", 2026], ["school", "CC"], ["major", "Computer Science"], ["minor", "Computer Science"], ["uni", "ss6166"], ["created_at", "2022-11-17 04:47:54.425209"], ["updated_at", "2022-11-17 04:47:54.425209"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 39ms (ActiveRecord: 7.1ms | Allocations: 20757)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-16 23:47:54 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-16 23:47:54 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 25.9ms | Allocations: 20284)
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | Allocations: 22513)
+Completed 200 OK in 31ms (Views: 27.8ms | ActiveRecord: 2.6ms | Allocations: 23295)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-16 23:47:56 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6166"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.4ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6166"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.3ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.4ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W1004 Intro to Programming in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3134 Data Structures in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3157 Advanced Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:33:in `block in show'
+  [1m[36mMajorreq Load (0.3ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W1004 Intro to Programming in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3134 Data Structures in Java"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3157 Advanced Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3261 Computer Science Theory"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS W3827 Fundamentals of Computer Systems"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2947)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3015)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 13.2ms | Allocations: 30436)
+
+
+  
+ActionView::Template::Error (undefined method `course' for nil:NilClass):
+    32: 
+    33: <h4>Major Requirements:</h4>
+    34: <% @major_reqs.each do |mjr| %>
+    35:   <p><%= link_to mjr.course, courses_path(:id => mjr.id) %></p>
+    36: <% end %>
+    37: 
+    38: <% if not @min_reqs =="NA" %>
+  
+app/views/dashboards/show.html.erb:35
+app/views/dashboards/show.html.erb:34:in `each'
+app/views/dashboards/show.html.erb:34
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (53.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "courseassist_development"[0m
+  [1m[35m (59.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "courseassist_test"[0m
+  [1m[35m (196.1ms)[0m  [1m[35mCREATE DATABASE "courseassist_development" ENCODING = 'unicode'[0m
+  [1m[35m (68.7ms)[0m  [1m[35mCREATE DATABASE "courseassist_test" ENCODING = 'unicode'[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8805789462907156440)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221116213406)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first" character varying, "last" character varying, "year" integer, "school" character varying, "major" character varying, "minor" character varying, "uni" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221116213406"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddCourses (20221116213439)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "addcourses" ("id" bigserial primary key, "uni" character varying, "course" character varying, "semester" character varying, "year" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221116213439"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCourses (20221116213508)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "courses" ("id" bigserial primary key, "name" character varying, "course" character varying, "prof" character varying, "preReqs" text, "description" text, "reviews" text, "currentlyOffered" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221116213508"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSchoolReqs (20221117003422)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "schoolreqs" ("id" bigserial primary key, "school" character varying, "course" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221117003422"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMajorReqs (20221117003428)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "majorreqs" ("id" bigserial primary key, "subject" character varying, "course" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221117003428"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMinorReqs (20221117003435)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "minorreqs" ("id" bigserial primary key, "subject" character varying, "course" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221117003435"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-17 04:50:54.078987"], ["updated_at", "2022-11-17 04:50:54.078987"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8805789462907156440)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.8ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Principles of Economics"], ["course", "ECON UN1105 Principles of Economics"], ["prof", "Sunil Gulati"], ["preReqs", "None"], ["description", "How a market economy determines the relative prices of goods, factors of production, and the allocation of resources and the circumstances under which it does it efficiently. Why such an economy has fluctuations and how they may becontrolled."], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:50:59.697868"], ["updated_at", "2022-11-17 04:50:59.697868"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "The Art of Engineering"], ["course", "ENGI E1102 The Art of Engineering"], ["prof", "David Vallancourt"], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:50:59.702225"], ["updated_at", "2022-11-17 04:50:59.702225"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Masterpieces of Western Art"], ["course", "HUMA UN1121 Masterpieces of Western Art"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:50:59.705060"], ["updated_at", "2022-11-17 04:50:59.705060"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Masterpieces of Western Music"], ["course", "HUMA UN1123 Masterpieces of Western Music"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:50:59.708034"], ["updated_at", "2022-11-17 04:50:59.708034"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Advanced Programming"], ["course", "COMS 3157 Advanced Programming"], ["prof", "Jae Woo Lee"], ["preReqs", "(COMS W3134) or (COMS W3137)"], ["description", "C programming language and Unix systems programming. Also covers Git, Make, TCP/IP networking basics, C++ fundamentals."], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:50:59.710953"], ["updated_at", "2022-11-17 04:50:59.710953"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Discrete Math"], ["course", "COMS 3203 Discrete Math"], ["prof", "Ansaf Salleb-Aboussai"], ["preReqs", "Any introductory course in computer programming"], ["description", "Logic and formal proofs, sequences and summation, mathematical induction, binomial coefficients, elements of finite probability, recurrence relations, equivalence relations and partial orderings, and topics in graph theory (including isomorphism, traversability, planarity, and colorings)."], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:50:59.713741"], ["updated_at", "2022-11-17 04:50:59.713741"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Engineering SaaS"], ["course", "COMS 4152 Engineering SaaS"], ["prof", "Junfeng Yang"], ["preReqs", ""], ["description", ""], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:50:59.716740"], ["updated_at", "2022-11-17 04:50:59.716740"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "course", "prof", "preReqs", "description", "reviews", "currentlyOffered", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Intermediate Microeconomics"], ["course", "ECON UN3211 Intermediate Microeconomics"], ["prof", nil], ["preReqs", nil], ["description", nil], ["reviews", nil], ["currentlyOffered", nil], ["created_at", "2022-11-17 04:50:59.719591"], ["updated_at", "2022-11-17 04:50:59.719591"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.6ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "SEAS"], ["course", "ECON UN1105 Principles of Economics"], ["created_at", "2022-11-17 04:50:59.737209"], ["updated_at", "2022-11-17 04:50:59.737209"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.5ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "SEAS"], ["course", "ENGI E1102 The Art of Engineering"], ["created_at", "2022-11-17 04:50:59.741308"], ["updated_at", "2022-11-17 04:50:59.741308"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.2ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "CC"], ["course", "HUMA UN1121 Masterpieces of Western Art"], ["created_at", "2022-11-17 04:50:59.745375"], ["updated_at", "2022-11-17 04:50:59.745375"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSchoolreq Create (0.2ms)[0m  [1m[32mINSERT INTO "schoolreqs" ("school", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["school", "CC"], ["course", "HUMA UN1123 Masterpieces of Western Music"], ["created_at", "2022-11-17 04:50:59.748438"], ["updated_at", "2022-11-17 04:50:59.748438"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.5ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS 3157 Advanced Programming"], ["created_at", "2022-11-17 04:50:59.761447"], ["updated_at", "2022-11-17 04:50:59.761447"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMajorreq Create (0.3ms)[0m  [1m[32mINSERT INTO "majorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Computer Science"], ["course", "COMS 3203 Discrete Math"], ["created_at", "2022-11-17 04:50:59.764815"], ["updated_at", "2022-11-17 04:50:59.764815"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.5ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN1105 Principles of Economics"], ["created_at", "2022-11-17 04:50:59.772009"], ["updated_at", "2022-11-17 04:50:59.772009"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMinorreq Create (0.2ms)[0m  [1m[32mINSERT INTO "minorreqs" ("subject", "course", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["subject", "Economics"], ["course", "ECON UN3211 Intermediate Microeconomics"], ["created_at", "2022-11-17 04:50:59.775602"], ["updated_at", "2022-11-17 04:50:59.775602"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2022-11-16 23:51:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1719)
+  Rendered layout layouts/application.html.erb (Duration: 54.9ms | Allocations: 36579)
+Completed 200 OK in 71ms (Views: 58.9ms | ActiveRecord: 0.0ms | Allocations: 41430)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-16 23:51:05 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 785)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-16 23:51:05 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2371)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4585)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 5317)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 23:51:09 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first"=>"Sameer", "last"=>"Saxena", "uni"=>"ss6167", "year"=>"2026", "school"=>"CC", "major"=>"Computer Science", "minor"=>"Computer Science"}, "commit"=>"Next"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("first", "last", "year", "school", "major", "minor", "uni", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first", "Sameer"], ["last", "Saxena"], ["year", 2026], ["school", "CC"], ["major", "Computer Science"], ["minor", "Computer Science"], ["uni", "ss6167"], ["created_at", "2022-11-17 04:51:09.437712"], ["updated_at", "2022-11-17 04:51:09.437712"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 25ms (ActiveRecord: 6.5ms | Allocations: 20726)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-16 23:51:09 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-16 23:51:09 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 16.7ms | Allocations: 19936)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 22149)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 2.2ms | Allocations: 22930)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-16 23:51:10 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.3ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.3ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.3ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.4ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3157 Advanced Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1014)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3222)
+Completed 200 OK in 46ms (Views: 6.3ms | ActiveRecord: 10.2ms | Allocations: 26153)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-16 23:51:15 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.7ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.3ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.3ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.4ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3157 Advanced Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 407)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2621)
+Completed 200 OK in 22ms (Views: 4.3ms | ActiveRecord: 3.3ms | Allocations: 7579)
+
+
+Started POST "/addcourses" for 127.0.0.1 at 2022-11-16 23:51:18 -0500
+Processing by AddcoursesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "addcourse"=>{"course"=>"COMS 3157 Advanced Programming", "semester"=>"Fall", "year"=>"2018"}, "commit"=>"Add"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/addcourses_controller.rb:17:in `create'
+  [1m[36mAddcourse Create (0.8ms)[0m  [1m[32mINSERT INTO "addcourses" ("uni", "course", "semester", "year", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uni", "ss6167"], ["course", "COMS 3157 Advanced Programming"], ["semester", "Fall"], ["year", 2018], ["created_at", "2022-11-17 04:51:18.973794"], ["updated_at", "2022-11-17 04:51:18.973794"]]
+  ↳ app/controllers/addcourses_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/addcourses_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 17ms (ActiveRecord: 3.5ms | Allocations: 15345)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-16 23:51:18 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 179)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-16 23:51:18 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2011)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 4238)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 4486)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-16 23:51:19 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.3ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.4ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.3ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.3ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 356)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2552)
+Completed 200 OK in 18ms (Views: 3.9ms | ActiveRecord: 2.1ms | Allocations: 7055)
+
+
+Started GET "/courses?id=4" for 127.0.0.1 at 2022-11-16 23:51:24 -0500
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 206)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2608)
+Completed 200 OK in 11ms (Views: 6.9ms | ActiveRecord: 0.3ms | Allocations: 4296)
+
+
+Started GET "/courses?id=6" for 127.0.0.1 at 2022-11-16 23:51:26 -0500
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2400)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.3ms | Allocations: 3114)
+
+
