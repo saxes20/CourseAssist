@@ -2,7 +2,6 @@ class DashboardsController < ApplicationController
     def index
       #puts @uni
       #puts "uni above ^^^"
-      @uni = session[:uni]
     end
 
     def show
