@@ -72,7 +72,7 @@ Scenario: user clicks on one of the classes presented
     When I fill in "UNI" with "ss6167"
     And I press "Enter"
     And I follow "COMS W3134 Introduction to Data Structures"
-    Then I should see "Details about Introduction to Data Structures"
+    Then I should see "Details about COMS W3134"
     And I should see "Professor: Mike Do"
     And I should see "Pre-Requirements: COMS W1004"
     And I should see "Course Description: Basic data structures"

@@ -1,30 +1,48 @@
+<html>
+
+<style>
+  h3, h4, p{
+    font-family: sans-serif;
+  }
+  h3{
+    font-size: 40px;
+  }
+  .fields{
+      display: flex;
+      flex-direction: column;
+  }
+  .field1{
+      margin: 20px 0px;
+  }
+</style>
+
 <%= link_to 'Sign Out', articles_path %>
 
-<h1>Hi, <%= @user.first %> <%= @user.last %>! Welcome to CourseAssist!</h1>
+<h3>Hi, <%= @user.first %> <%= @user.last %>! Welcome to CourseAssist!</h3>
 <p>Uni: <%= @user.uni %></p>
 <p>Year: <%= @user.year %></p>
 <p>School: <%= @user.school %></p>
 <p>Major: <%= @user.major %></p>
 <p>Minor: <%= @user.minor %></p>
 
-<h3>Core Requirements:</h3>
+<h4>Core Requirements:</h4>
 <% @school_reqs.each do |sr| %>
   <p><%= link_to sr.course, courses_path(:id => sr.id) %></p>
 <% end %>
 
-<h3>Major Requirements:</h3>
+<h4>Major Requirements:</h4>
 <% @major_reqs.each do |mjr| %>
   <p><%= link_to mjr.course, courses_path(:id => mjr.id) %></p>
 <% end %>
 
 <% if not @min_reqs =="NA" %>
-  <h3>Minor Requirements:</h3>
+  <h4>Minor Requirements:</h4>
   <% @minor_reqs.each do |mnr| %>
     <p><%= link_to mnr.course, courses_path(:id => mnr.id) %></p>
   <% end %>
 <% end %>
 
-<h3>Search for class</h3>
+<h4>Search for class</h4>
 <%= form_tag(dashboards_path, method: :get) do %>
   <%= text_field_tag :search, params[:search], id: 'searchbar' %>
   <%= submit_tag "Search", name: nil %>
@@ -32,3 +50,5 @@
 <% @courses.each do |course| %>
   <p><%= link_to course.course, courses_path(:id => course.id) %></p>
 <% end %>
+
+</html>

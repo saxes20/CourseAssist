@@ -1,22 +1,56 @@
+<html>
+
+<style>
+  h3, p{
+    font-family: sans-serif;
+  }
+  h3{
+    font-size: 40px;
+  }
+  .fields{
+      display: flex;
+      flex-direction: column;
+  }
+  .field1{
+      margin: 20px 0px;
+  }
+
+</style>
+
 <%= link_to 'Sign In', articles_path %>
 <%= link_to 'About', users_path %>
 
-<h1>Please add the courses you took in the past semesters</h1>
+<h3>Please add the courses you took in the past semesters</h1>
 
 <br>
 <br>
 
 <%= form_tag addcourses_path, class: 'form' do %>
-    <%= label :addcourse, :course, 'Course', :class => 'col-form-label' %>
-    <%= collection_select :addcourse, :course, Course.all, :course, :course, prompt: true, :class => 'form-control' %>
 
-    <%= label :addcourse, :semester, 'Semester', class: 'col-form-label'  %>
-    <%= select :addcourse, :semester, ['Fall', 'Spring'], {}, {class: 'form-control col-1'} %>
+    <div class = "fields">
 
-    <%= label :addcourse, :year, 'Year', class: 'col-form-label'  %>
-    <%= select :addcourse, :year, [2018, 2019, 2020, 2021, 2022], {}, {class: 'form-control col-1'} %>
+        <div class = "field1">
+            <%= label :addcourse, :course, 'Course', :class => 'col-form-label' %>
+            <%= collection_select :addcourse, :course, Course.all, :course, :course, prompt: true, :class => 'form-control' %>
+        </div>
+       
+        <div class = "field1">
+            <%= label :addcourse, :semester, 'Semester', class: 'col-form-label'  %>
+            <%= select :addcourse, :semester, ['Fall', 'Spring'], {}, {class: 'form-control col-1'} %>
+        </div>
 
-    <%= submit_tag 'Add', :class => 'btn btn-primary' %>
+        <div class = "field1">
+        <%= label :addcourse, :year, 'Year', class: 'col-form-label'  %>
+        <%= select :addcourse, :year, [2018, 2019, 2020, 2021, 2022], {}, {class: 'form-control col-1'} %>
+        </div>
+
+        <div class = "field1">
+            <%= submit_tag 'Add', :class => 'btn btn-primary' %>
+        </div>
+    </div>
+  
 <% end %>
 <br>
 <%= link_to 'Finish Registration', dashboards_path %>
+
+</html>

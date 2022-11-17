@@ -1,16 +1,67 @@
-<h1>CourseAssist</h1>
-<p>Superior class selection</p>
+<html>
 
-<%= link_to 'Sign Up', users_path %>
-<p>or</p> <br>
-<p>Enter your uni: </p>
+<style>
+  h1, p{
+    font-family: sans-serif;
+  }
+  h1{
+    font-size: 50px;
+  }
+  .subheading{
+    font-size: 30px;
+  }
+  .titles{
+    text-align: center;
+    width: 100%;
+  }
+  .options{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .option1{
+    vertical-align: middle;
+  }
 
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
+</style>
 
-<%= form_tag dashboards_path, :class => 'form' do %>
-  <%= label :user, :uni, 'UNI', :class => 'col-form-label' %>
-  <%= text_field :user, 'uni', :class => 'form-control' %>
-  <%= submit_tag 'Enter', :class => 'btn btn-primary' %>
-<% end %>
+<body>
+
+<div class = "titles">
+  <h1>CourseAssist</h1>
+  <p class = "subheading">Superior class selection</p>
+</div>
+
+<div class = "options">
+
+  <div class = "option1">
+    <%= link_to 'Sign Up', users_path %>
+  </div>
+
+  <div class = "option2">
+    <p>or</p> 
+  </div>
+
+  <div class = "option3">
+    <p>Enter your uni: </p>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+
+    <%= form_tag dashboards_path, :class => 'form' do %>
+      <%= label :user, :uni, 'UNI', :class => 'col-form-label' %>
+      <%= text_field :user, 'uni', :class => 'form-control' %>
+      <%= submit_tag 'Enter', :class => 'btn btn-primary' %>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+</body>
+</html>
