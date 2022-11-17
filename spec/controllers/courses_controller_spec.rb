@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe CoursesController do
   before do
+    ActiveRecord::Base.connection.reset_pk_sequence!('courses')
     courses = [{:name => 'Principles of Economics', :course => 'ECON UN1105 Principles of Economics', :prof => 'Sunil Gulati', :preReqs => 'None', :description => 'How a market economy determines the relative prices of goods, factors of production, and the allocation of resources and the circumstances under which it does it efficiently. Why such an economy has fluctuations and how they may becontrolled.'},
                {:name => 'The Art of Engineering', :course => 'ENGI E1102 The Art of Engineering', :prof => 'David Vallancourt'},
                {:name => 'Masterpieces of Western Art', :course => 'HUMA UN1121 Masterpieces of Western Art'},
@@ -15,8 +16,22 @@ describe CoursesController do
       Course.create!(course)
     end
   end
-  it 'show the correct class' do
-      get :show, params: {id: 3}
-      expect(response).to include("Discrete Math")
+  it 'shows the correct class for id = 1' do
+      get :show, params: {id: 1}
+      course_response = assigns(:course)
+      expect(course_response.name).to include("Principles of Economics")
+      expect(course_response.description).to include('How a market economy')
+  end
+  it 'shows the correct class for id = 7' do
+    get :show, params: {id: 7}
+    course_response = assigns(:course)
+    expect(course_response.course).to include("COMS 4152 Engineering SaaS")
+    expect(course_response.prof).to eq 'Junfeng Yang'
+  end
+  it 'shows the correct class for id = 5' do
+    get :show, params: {id: 5}
+    course_response = assigns(:course)
+    expect(course_response.name).to eq 'Advanced Programming'
+    expect(course_response.preReqs).to include('COMS W3134')
   end
 end
