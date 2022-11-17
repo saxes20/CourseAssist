@@ -11,7 +11,7 @@ class DashboardsController < ApplicationController
       #puts "uni above ^^^"
       @uni = session[:uni]
       @user = User.find_by(uni: @uni)
-
+      
       @thetakencourses = Addcourse.where(uni: @uni)
       @taken_courses = []
       @thetakencourses.each do |tc|
@@ -42,7 +42,7 @@ class DashboardsController < ApplicationController
             @major_reqs << Course.find_by(course: mjr.course)
           end
         end
-        
+
       else
         flash[:notice] = "User not found. Please sign up first."
         redirect_to root_path
@@ -61,7 +61,7 @@ class DashboardsController < ApplicationController
     # Making "internal" methods private is not required, but is a common practice.
     # This helps make clear which methods respond to requests, and which ones do not.
     def user_params
-      params.require(:user).permit(:uni, :search)
+      params.require(:user).permit(:uni, :search, :course)
     end
   end
   
