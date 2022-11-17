@@ -5,18 +5,29 @@
 <p>Year: <%= @user.year %></p>
 <p>School: <%= @user.school %></p>
 <p>Major: <%= @user.major %></p>
+<p>Minor: <%= @user.minor %></p>
+
 <h3>Core Requirements:</h3>
-<p><%= @reqs %></p>
+<% @school_reqs.each do |sr| %>
+  <p><%= link_to sr.course, courses_path(:id => sr.id) %></p>
+<% end %>
+
 <h3>Major Requirements:</h3>
-<p><%= @maj_reqs %></p>
+<% @major_reqs.each do |mjr| %>
+  <p><%= link_to mjr.course, courses_path(:id => mjr.id) %></p>
+<% end %>
+
 <% if not @min_reqs =="NA" %>
   <h3>Minor Requirements:</h3>
-  <p><%= @min_reqs %></p>
+  <% @minor_reqs.each do |mnr| %>
+    <p><%= link_to mnr.course, courses_path(:id => mnr.id) %></p>
+  <% end %>
 <% end %>
+
 <h3>Search for class</h3>
 <%= form_tag(dashboards_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search]) %>
-  <%= submit_tag ("Search") %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", name: nil %>
 <% end %>
 <% @courses.each do |course| %>
   <p><%= link_to course.course, courses_path(:id => course.id) %></p>

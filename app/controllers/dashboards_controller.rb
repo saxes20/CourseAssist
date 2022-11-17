@@ -11,48 +11,43 @@ class DashboardsController < ApplicationController
       #puts "uni above ^^^"
       @uni = session[:uni]
       @user = User.find_by(uni: @uni)
-      #validate if user exists
-      @min_reqs = "NA"
+
+      @thetakencourses = Addcourse.where(uni: @uni)
+      @taken_courses = []
+      @thetakencourses.each do |tc|
+        @taken_courses << tc.course
+      end
+
       if @user
-        #puts @user
-        #puts "Valid user"
-        #check if user has a minor
-        if (not @user.minor.nil?)
-          if(@user.minor == "None")
-            #No minor
-            @min_reqs = "NA"
-          elsif(@user.minor == "Computer Science")
-            #CS Minor
-            @min_reqs = "COMS W1004, COMS W3134, COMS W3157, COMS W3203, COMS W3261, CSEE W3827, COMS W3251"
-          elsif(@user.minor == "Economics")
-            #Econ minor
-            @min_reqs = "ECON UN1105, ECON UN3211, ECON UN3213, ECON UN3412, 2x Approved Economics Electives"
+        @theschoolreqs = Schoolreq.search(@user.school)
+        @school_reqs = []
+        @theschoolreqs.each do |sr|
+          if not @taken_courses.include? sr.course
+            @school_reqs << Course.find_by(course: sr.course)
           end
         end
-        #check user school
-        if (@user.school == "SEAS")
-          @reqs = "One year physics, CHEM CC1403, ENGI E1102, ENGI E1006, Phys/Chem Lab, ENGL CC1010,
-           2 Core Humanities, HUMA UN1121 or HUMA UN1123, Econ UN1105, 9 Non-tech points"
-           if (@user.major == "Computer Science")
-             @maj_reqs = "COMS W1004, COMS W3134, COMS W3157, COMS W3203, COMS W3251, COMS W3261, CSEE W3827, COMS W4115, COMS W4118, CSEE W4119, 2xAny COMS W41xx, 2xAny COMS W48xx"
-           else
-             @maj_reqs = "None left!"
-           end
-        else
-          @reqs = "HUMA CC1001, HUMA CC1002, COCI CC1101, COCI CC1102, HUMA UN1121, HUMA UN1123,
-           SCNC CC1000, ENGL CC1010, Foriegn lang., Global core, SCNC CC1000, Physical Education"
-           if (@user.major == "Computer Science")
-             @maj_reqs = "COMS W1004, COMS W3134, COMS W3157, COMS W3203, COMS W3251, COMS W3261, CSEE W3827, COMS W4115, COMS W4118, CSEE W4119, 2xAny COMS W41xx, 2xAny COMS W48xx"
-           elsif (@user.major == "Economics")
-             @maj_reqs = "MATH UN1101, MATH UN1102, MATH UN1201, MATH UN1205, STAT UN1201, ECON UN1105, ECON UN3211, ECON UN3213, ECON UN3412, 5x 3000/4000 Electives"
-           else
-             @maj_reqs = "None left!"
-           end
+
+        @theminorreqs = Minorreq.search(@user.minor)
+        @minor_reqs = []
+        @theminorreqs.each do |mnr|
+          if not @taken_courses.include? mnr.course
+            @minor_reqs << Course.find_by(course: mnr.course)
+          end
         end
+
+        @themajorreqs = Majorreq.search(@user.major)
+        @major_reqs = []
+        @themajorreqs.each do |mjr|
+          if not @taken_courses.include? mjr.course
+            @major_reqs << Course.find_by(course: mjr.course)
+          end
+        end
+        
       else
         flash[:notice] = "User not found. Please sign up first."
         redirect_to root_path
       end
+
     end
   
     def create

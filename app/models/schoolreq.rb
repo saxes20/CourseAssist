@@ -1,7 +1,7 @@
-class Course < ApplicationRecord
+class Schoolreq < ApplicationRecord
     def self.search(search)
         if search
-            self.where("course LIKE ?", "%" + search + "%")
+            self.where(school: search)
         else
             return []
         end
