@@ -122,32 +122,35 @@ describe DashboardsController do
     it 'user3 should have N/A major requirements' do
         get :show, session: {uni: 'ah2102'}
         school_reqs = assigns(:major_reqs)
-        expect(school_reqs).to eq('None left!')
+        expect(school_reqs.empty?).to eq true
     end
     it 'user3 should have N/A minor requirements' do
         get :show, session: {uni: 'ah2102'}
         school_reqs = assigns(:minor_reqs)
-        expect(school_reqs).to == []
+        expect(school_reqs.empty?).to eq true
     end
     it 'user4 should have N/A major requirements' do
         get :show, session: {uni: 'lc1902'}
         school_reqs = assigns(:major_reqs)
-        expect(school_reqs).to eq('None left!')
+        expect(school_reqs.empty?).to eq true
+        #expect(school_reqs).to eq('None left!')
     end
     it 'user4 should have N/A minor requirements' do
         get :show, session: {uni: 'lc1902'}
         school_reqs = assigns(:minor_reqs)
-        expect(school_reqs).to eq('NA')
+        expect(school_reqs.empty?).to eq true
+        #expect(school_reqs).to eq('NA')
     end
     it 'user5 should have proper major requirements' do
         get :show, session: {uni: 'jy1203'}
         school_reqs = assigns(:major_reqs)
-        expect(school_reqs).to include('COMS W4115')
+        expect(school_reqs[0].course).to include('COMS 3157 Advanced Programming')
+        #expect(school_reqs).to include('COMS W4115')
     end
     it 'user5 should have N/A minor requirements' do
         get :show, session: {uni: 'jy1203'}
         school_reqs = assigns(:minor_reqs)
-        expect(school_reqs).to eq('NA')
+        expect(school_reqs.empty?).to eq true
     end
     it 'redirect to home page if UNI is not found' do
         get :show, session: {uni: 'fadsjkl'}
