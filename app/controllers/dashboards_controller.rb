@@ -4,7 +4,7 @@ class DashboardsController < ApplicationController
       #puts "uni above ^^^"
       @uni = session[:uni]
     end
-  
+
     def show
       @courses = Course.search(params[:search])
       #puts @uni
@@ -49,14 +49,14 @@ class DashboardsController < ApplicationController
       end
 
     end
-  
+
     def create
       @user = user_params["uni"]
       #puts @user
       session[:uni] = @user
       redirect_to dashboards_path
     end
-  
+
     private
     # Making "internal" methods private is not required, but is a common practice.
     # This helps make clear which methods respond to requests, and which ones do not.
@@ -64,4 +64,3 @@ class DashboardsController < ApplicationController
       params.require(:user).permit(:uni, :search, :course)
     end
   end
-  
