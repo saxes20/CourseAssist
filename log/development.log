@@ -7601,3 +7601,494 @@ Processing by CoursesController#show as HTML
 Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.3ms | Allocations: 3114)
 
 
+Started GET "/" for 127.0.0.1 at 2022-11-18 12:30:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1727)
+  Rendered layout layouts/application.html.erb (Duration: 80.9ms | Allocations: 36558)
+Completed 200 OK in 95ms (Views: 85.7ms | ActiveRecord: 0.0ms | Allocations: 41409)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-18 12:30:22 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 785)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-18 12:30:22 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2380)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4594)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 5326)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-18 12:30:31 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first"=>"Sameer", "last"=>"Saxena", "uni"=>"ss6167", "year"=>"2026", "school"=>"CC", "major"=>"Computer Science", "minor"=>"Economics"}, "commit"=>"Next"}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("first", "last", "year", "school", "major", "minor", "uni", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first", "Sameer"], ["last", "Saxena"], ["year", 2026], ["school", "CC"], ["major", "Computer Science"], ["minor", "Economics"], ["uni", "ss6167"], ["created_at", "2022-11-18 17:30:31.518126"], ["updated_at", "2022-11-18 17:30:31.518126"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 48ms (ActiveRecord: 16.9ms | Allocations: 20762)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-18 12:30:31 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-18 12:30:31 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 25.9ms | Allocations: 19924)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 22153)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 3.0ms | Allocations: 22935)
+
+
+Started POST "/addcourses" for 127.0.0.1 at 2022-11-18 12:30:36 -0500
+Processing by AddcoursesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "addcourse"=>{"course"=>"HUMA UN1123 Masterpieces of Western Music", "semester"=>"Fall", "year"=>"2020"}, "commit"=>"Add"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/addcourses_controller.rb:17:in `create'
+  [1m[36mAddcourse Create (1.5ms)[0m  [1m[32mINSERT INTO "addcourses" ("uni", "course", "semester", "year", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uni", "ss6167"], ["course", "HUMA UN1123 Masterpieces of Western Music"], ["semester", "Fall"], ["year", 2020], ["created_at", "2022-11-18 17:30:36.281859"], ["updated_at", "2022-11-18 17:30:36.281859"]]
+  ↳ app/controllers/addcourses_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/addcourses_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 25ms (ActiveRecord: 5.1ms | Allocations: 15960)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-18 12:30:36 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 179)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-18 12:30:36 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2003)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4218)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 4466)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-18 12:30:36 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.5ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.4ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.5ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.4ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 913)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3125)
+Completed 200 OK in 54ms (Views: 5.9ms | ActiveRecord: 9.8ms | Allocations: 24599)
+
+
+Started GET "/courses?id=6" for 127.0.0.1 at 2022-11-18 12:30:43 -0500
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 275)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2676)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 0.4ms | Allocations: 4384)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-18 12:30:45 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.5ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.3ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.3ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.3ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 312)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 2528)
+Completed 200 OK in 24ms (Views: 8.6ms | ActiveRecord: 2.5ms | Allocations: 6590)
+
+
+Started GET "/courses?id=6" for 127.0.0.1 at 2022-11-18 12:30:48 -0500
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 54)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 2447)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 3159)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-18 12:30:48 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.3ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.3ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.5ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.3ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 305)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2501)
+Completed 200 OK in 18ms (Views: 6.3ms | ActiveRecord: 2.4ms | Allocations: 6535)
+
+
+Started GET "/articles" for 127.0.0.1 at 2022-11-18 12:30:49 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 616)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2827)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 3072)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-18 12:30:50 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-18 12:30:50 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3835)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 4080)
+
+
+Started GET "/articles" for 127.0.0.1 at 2022-11-18 12:30:52 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 586)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 2789)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 3032)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-18 12:42:29 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1707)
+  Rendered layout layouts/application.html.erb (Duration: 81.4ms | Allocations: 36219)
+Completed 200 OK in 101ms (Views: 86.7ms | ActiveRecord: 0.0ms | Allocations: 41070)
+
+
+Started POST "/dashboards" for 127.0.0.1 at 2022-11-18 12:42:33 -0500
+Processing by DashboardsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"uni"=>"ss6167"}, "commit"=>"Enter"}
+Redirected to http://127.0.0.1:3000/dashboards
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 459)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-18 12:42:33 -0500
+Processing by DashboardsController#show as TURBO_STREAM
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (2.0ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.3ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.3ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.4ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 918)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3126)
+Completed 200 OK in 122ms (Views: 6.3ms | ActiveRecord: 24.4ms | Allocations: 72513)
+
+
+Started GET "/courses?id=3" for 127.0.0.1 at 2022-11-18 12:44:00 -0500
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2670)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.3ms | Allocations: 4378)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-18 12:44:03 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 584)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 2798)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 3046)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-11-18 12:44:06 -0500
+Processing by UsersController#show as HTML
+Redirected to http://127.0.0.1:3000/users/new
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms | Allocations: 765)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-18 12:44:06 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2372)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4602)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 5335)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-18 12:44:16 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first"=>"David", "last"=>"Castro", "uni"=>"dc123", "year"=>"2025", "school"=>"CC", "major"=>"Economics", "minor"=>"Computer Science"}, "commit"=>"Next"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first", "last", "year", "school", "major", "minor", "uni", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first", "David"], ["last", "Castro"], ["year", 2025], ["school", "CC"], ["major", "Economics"], ["minor", "Computer Science"], ["uni", "dc123"], ["created_at", "2022-11-18 17:44:16.069101"], ["updated_at", "2022-11-18 17:44:16.069101"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 12ms (ActiveRecord: 4.8ms | Allocations: 2821)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-18 12:44:16 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-18 12:44:16 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 11.9ms | Allocations: 3750)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5971)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.3ms | Allocations: 6706)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-18 12:44:19 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "dc123"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.3ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "dc123"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.3ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.3ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.3ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Economics"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 313)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2525)
+Completed 200 OK in 19ms (Views: 4.7ms | ActiveRecord: 2.3ms | Allocations: 6506)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-18 12:44:34 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1622)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3833)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 4077)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-18 12:44:35 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 594)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2805)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 3049)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-18 12:44:49 -0500
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first"=>"David", "last"=>"Castro", "uni"=>"dc123", "year"=>"2026", "school"=>"CC", "major"=>"Computer Science", "minor"=>"Economics"}, "commit"=>"Next"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first", "last", "year", "school", "major", "minor", "uni", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first", "David"], ["last", "Castro"], ["year", 2026], ["school", "CC"], ["major", "Computer Science"], ["minor", "Economics"], ["uni", "dc123"], ["created_at", "2022-11-18 17:44:49.247716"], ["updated_at", "2022-11-18 17:44:49.247716"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (30.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/addcourses
+Completed 302 Found in 37ms (ActiveRecord: 31.5ms | Allocations: 2171)
+
+
+Started GET "/addcourses" for 127.0.0.1 at 2022-11-18 12:44:49 -0500
+Processing by AddcoursesController#show as TURBO_STREAM
+Redirected to http://127.0.0.1:3000/addcourses/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/addcourses/new" for 127.0.0.1 at 2022-11-18 12:44:49 -0500
+Processing by AddcoursesController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering addcourses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/addcourses/new.html.erb:34
+  Rendered addcourses/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1993)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4196)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.4ms | Allocations: 4444)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-18 12:44:51 -0500
+Processing by DashboardsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "dc123"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.3ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "dc123"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.5ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1123 Masterpieces of Western Music"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.2ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.3ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Economics"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 306)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2502)
+Completed 200 OK in 18ms (Views: 4.2ms | ActiveRecord: 2.3ms | Allocations: 6470)
+
+
+Started GET "/articles" for 127.0.0.1 at 2022-11-18 12:44:58 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2795)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 3038)
+
+
+Started POST "/dashboards" for 127.0.0.1 at 2022-11-18 12:46:25 -0500
+Processing by DashboardsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"uni"=>"ss6167"}, "commit"=>"Enter"}
+Redirected to http://127.0.0.1:3000/dashboards
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 432)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-18 12:46:25 -0500
+Processing by DashboardsController#show as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.2ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.2ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.2ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.2ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 305)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 2501)
+Completed 200 OK in 19ms (Views: 9.5ms | ActiveRecord: 1.6ms | Allocations: 6556)
+
+
+Started GET "/articles" for 127.0.0.1 at 2022-11-18 12:46:26 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 588)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2791)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 3034)
+
+
+Started POST "/dashboards" for 127.0.0.1 at 2022-11-18 12:46:31 -0500
+Processing by DashboardsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"uni"=>"ss6167"}, "commit"=>"Enter"}
+Redirected to http://127.0.0.1:3000/dashboards
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 432)
+
+
+Started GET "/dashboards" for 127.0.0.1 at 2022-11-18 12:46:31 -0500
+Processing by DashboardsController#show as TURBO_STREAM
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uni" = $1 LIMIT $2[0m  [["uni", "ss6167"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:12:in `show'
+  [1m[36mAddcourse Load (0.3ms)[0m  [1m[34mSELECT "addcourses".* FROM "addcourses" WHERE "addcourses"."uni" = $1[0m  [["uni", "ss6167"]]
+  ↳ app/controllers/dashboards_controller.rb:16:in `show'
+  [1m[36mSchoolreq Load (0.2ms)[0m  [1m[34mSELECT "schoolreqs".* FROM "schoolreqs" WHERE "schoolreqs"."school" = $1[0m  [["school", "CC"]]
+  ↳ app/controllers/dashboards_controller.rb:23:in `show'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "HUMA UN1121 Masterpieces of Western Art"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:25:in `block in show'
+  [1m[36mMinorreq Load (0.2ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs" WHERE "minorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:31:in `show'
+  [1m[36mMajorreq Load (0.2ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs" WHERE "majorreqs"."subject" = $1[0m  [["subject", "Computer Science"]]
+  ↳ app/controllers/dashboards_controller.rb:39:in `show'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."course" = $1 LIMIT $2[0m  [["course", "COMS 3203 Discrete Math"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboards_controller.rb:41:in `block in show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/show.html.erb within layouts/application
+  Rendered dashboards/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 305)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2501)
+Completed 200 OK in 16ms (Views: 4.0ms | ActiveRecord: 1.7ms | Allocations: 6542)
+
+
+  [1m[36mMajorreq Load (0.6ms)[0m  [1m[34mSELECT "majorreqs".* FROM "majorreqs"[0m
+  [1m[36mMinorreq Load (0.9ms)[0m  [1m[34mSELECT "minorreqs".* FROM "minorreqs"[0m
