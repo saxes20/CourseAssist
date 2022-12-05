@@ -31,7 +31,7 @@
 
         <div class = "field1">
             <%= label :addcourse, :course, 'Course', :class => 'col-form-label' %>
-            <%= collection_select :addcourse, :course, Course.all, :course, :course, prompt: true, :class => 'form-control' %>
+            <%= collection_select :addcourse, :course, Course.all, :course, :course, options = {:prompt => 'Select a Class...'}, html_options = {class: 'form-control col-1'} %>
         </div>
        
         <div class = "field1">
