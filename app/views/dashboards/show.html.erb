@@ -25,6 +25,11 @@
 <p>Major: <%= @user.major %></p>
 <p>Minor: <%= @user.minor %></p>
 
+<h4>Current Schedule:</h4>
+<% @schedule.each do |s| %>
+  <p><%= link_to s.course, courses_path(:id => s.id) %></p>
+<% end %>
+
 <h4>Core Requirements:</h4>
 <% @school_reqs.each do |sr| %>
   <p><%= link_to sr.course, courses_path(:id => sr.id) %></p>
@@ -49,6 +54,7 @@
 <% end %>
 <% @courses.each do |course| %>
   <p><%= link_to course.course, courses_path(:id => course.id) %></p>
+  <%= button_to "Add To Schedule", dashboards_path(:id => course.id), method: "put" %> 
 <% end %>
 
 </html>
