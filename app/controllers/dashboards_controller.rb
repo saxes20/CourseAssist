@@ -5,16 +5,36 @@ class DashboardsController < ApplicationController
     end
 
     def show
-      @courses = Course.search(params[:search])
       #puts @uni
       #puts "uni above ^^^"
       @uni = session[:uni]
       @user = User.find_by(uni: @uni)
 
       found_courses = Studentschedule.where(uni: @uni)
-      @schedule = []
+      @schedule = [[], [], [], [], []] # Monday Tuesday Wednesday Thursday Friday
       found_courses.each do |fc|
-        @schedule << Course.find_by(course: fc.course)
+        thecourse = Course.find_by(course: fc.course)
+        ctime = thecourse.time
+
+        if ctime.include? "M"
+          @schedule[0] << thecourse
+        end
+        if ctime.include? "W"
+          @schedule[2] << thecourse
+        end
+        if ctime.include? "F"
+          @schedule[4] << thecourse
+        end
+
+        if ctime.include? "TTh"
+          @schedule[1] << thecourse
+          @schedule[3] << thecourse
+        elsif ctime.include? "Th"
+          @schedule[3] << thecourse
+        elsif ctime.include? "T"
+          @schedule[1] << thecourse
+        end
+
       end
       
       @thetakencourses = Addcourse.where(uni: @uni)
@@ -23,11 +43,25 @@ class DashboardsController < ApplicationController
         @taken_courses << tc.course
       end
 
+      @theaddedcourses = Studentschedule.where(uni: @uni)
+      @added_courses = []
+      @theaddedcourses.each do |ac|
+        @added_courses << ac.course
+      end
+
+      unfiltered_courses = Course.search(params[:search])
+      @courses = []
+      unfiltered_courses.each do |unf_c|
+        if not @taken_courses.include? unf_c.course and not @added_courses.include? unf_c.course
+          @courses << unf_c
+        end
+      end
+
       if @user
         @theschoolreqs = Schoolreq.search(@user.school)
         @school_reqs = []
         @theschoolreqs.each do |sr|
-          if not @taken_courses.include? sr.course
+          if not @taken_courses.include? sr.course and not @added_courses.include? sr.course 
             @school_reqs << Course.find_by(course: sr.course)
           end
         end
@@ -35,7 +69,7 @@ class DashboardsController < ApplicationController
         @theminorreqs = Minorreq.search(@user.minor)
         @minor_reqs = []
         @theminorreqs.each do |mnr|
-          if not @taken_courses.include? mnr.course
+          if not @taken_courses.include? mnr.course and not @added_courses.include? mnr.course 
             @minor_reqs << Course.find_by(course: mnr.course)
           end
         end
@@ -43,7 +77,7 @@ class DashboardsController < ApplicationController
         @themajorreqs = Majorreq.search(@user.major)
         @major_reqs = []
         @themajorreqs.each do |mjr|
-          if not @taken_courses.include? mjr.course
+          if not @taken_courses.include? mjr.course and not @added_courses.include? mjr.course 
             @major_reqs << Course.find_by(course: mjr.course)
           end
         end
@@ -66,9 +100,13 @@ class DashboardsController < ApplicationController
       id = params[:id]
       @course = Course.find(id)
       @uni = session[:uni]
-      schedule_course = Studentschedule.create!(uni: @uni, course: @course.course)
-      puts schedule_course.uni
-      puts schedule_course.course
+      if params[:remove_from_schedule]
+        Studentschedule.where(uni: @uni, course: @course.course).destroy_all
+      else 
+        schedule_course = Studentschedule.create!(uni: @uni, course: @course.course)
+        puts schedule_course.uni
+        puts schedule_course.course
+      end
       redirect_to dashboards_path
     end
 

@@ -21,11 +21,13 @@
     </li>
   </ul>
 
-  <div class="row">
-    <h3> Details about <em> <%= @course.course %> </em> </h3>
-    <p> Professor: <%= @course.prof %> </p>
-    <p> Pre-Requirements: <%= @course.preReqs %> </p>
-    <p> Course Description: <%= @course.description %> </p>
-  </div>
-
+<div class="row">
+  <h3> Details about <em> <%= @course.course %> </em> </h3>
+  <p> Professor: <%= @course.prof %> </p>
+  <p> Pre-Requirements: <%= @course.preReqs %> </p>
+  <p> Course Description: <%= @course.description %> </p>
+  <h2> Reviews for this class </h2>
+  <% @reviews.each do |review| %>
+    <p><%= review %></p>
+  <% end %>
 </div>

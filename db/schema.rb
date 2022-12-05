@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_183323) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_212343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,16 +23,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_183323) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "coursereviews", force: :cascade do |t|
+    t.string "course"
+    t.string "prof"
+    t.text "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "course"
     t.string "prof"
     t.text "preReqs"
     t.text "description"
-    t.text "reviews"
-    t.integer "currentlyOffered"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "time"
   end
 
   create_table "majorreqs", force: :cascade do |t|
@@ -61,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_183323) do
     t.string "course"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "time"
   end
 
   create_table "users", force: :cascade do |t|

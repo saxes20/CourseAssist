@@ -3,7 +3,7 @@ class Course < ApplicationRecord
         if search
             self.where("course LIKE ?", "%" + search + "%")
         else
-            return []
+            return Course.all
         end
     end
 end
