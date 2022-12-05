@@ -25,39 +25,62 @@
   .option1{
     vertical-align: middle;
   }
-
+  .my-row{
+    margin-top: 40px;
+  }
+  .padding{
+    
+  }
+  .big{
+    font-size: 35px;
+    font-weight: 400;
+    }
+  }
 </style>
 
 <body>
 
 <div class = "container">
-  <div class = "titles">
-    <h1>CourseAssist</h1>
-    <p class = "subheading">Superior class selection</p>
+
+  <div class = "row my-row">
+
+  <div class = "col-md-2">
   </div>
 
-  <div class = "options">
+  <div class = "col-md-4">
+    <h1 class = "lead big">CourseAssist</h1>
+    <p class = "subheading lead">The personalized course planning platform</p>
+  </div>
 
-    <div class = "option1">
-      <%= link_to 'Sign Up', users_path %>
-    </div>
-
-    <div class = "option2">
-      <p>or</p> 
-    </div>
+  <div class = "col-md-4">
 
     <div class = "option3">
-      <p>Enter your uni: </p>
+      <h5 class = "padding lead">Enter your uni: </h5>
       <% if flash[:notice] %>
         <div class="notice"><%= flash[:notice] %></div>
       <% end %>
 
       <%= form_tag dashboards_path, :class => 'form' do %>
-        <%= text_field :user, 'uni', :class => 'col-md-2' %>
-        <%= submit_tag 'Enter', :class => 'btn btn-primary' %>
+        <div class = "row">
+          <div class = "col-md-8">
+            <%= text_field :user, 'uni', :class => 'form-control' %>
+          </div>
+          <div class = "col-md-4">
+            <%= submit_tag 'Enter', :class => 'btn btn-primary' %>
+          </div>
+        </div>
       <% end %>
     </div>
+    <br>
+    <div>
+      <%= link_to 'Dont have an account? Sign Up', users_path, :class => 'lead' %>
+    </div>
 
+  </div>
+
+  <div class = "col-md-2">
+  </div>
+  
   </div>
 </div>
 

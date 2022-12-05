@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resource :courses
   get "/addcourses", to: "addcourses#index"
 
+  # put "/dashboards/:id", to: 'dashboards#add', as: "add"
+
 end

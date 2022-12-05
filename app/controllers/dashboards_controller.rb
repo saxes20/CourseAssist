@@ -10,6 +10,12 @@ class DashboardsController < ApplicationController
       #puts "uni above ^^^"
       @uni = session[:uni]
       @user = User.find_by(uni: @uni)
+
+      found_courses = Studentschedule.where(uni: @uni)
+      @schedule = []
+      found_courses.each do |fc|
+        @schedule << Course.find_by(course: fc.course)
+      end
       
       @thetakencourses = Addcourse.where(uni: @uni)
       @taken_courses = []
@@ -56,10 +62,20 @@ class DashboardsController < ApplicationController
       redirect_to dashboards_path
     end
 
+    def update
+      id = params[:id]
+      @course = Course.find(id)
+      @uni = session[:uni]
+      schedule_course = Studentschedule.create!(uni: @uni, course: @course.course)
+      puts schedule_course.uni
+      puts schedule_course.course
+      redirect_to dashboards_path
+    end
+
     private
     # Making "internal" methods private is not required, but is a common practice.
     # This helps make clear which methods respond to requests, and which ones do not.
     def user_params
-      params.require(:user).permit(:uni, :search, :course)
+      params.require(:user).permit(:uni, :course)
     end
   end

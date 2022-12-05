@@ -1,0 +1,2 @@
+class Studentschedule < ApplicationRecord
+end
