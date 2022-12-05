@@ -30,34 +30,35 @@
 
 <body>
 
-<div class = "titles">
-  <h1>CourseAssist</h1>
-  <p class = "subheading">Superior class selection</p>
-</div>
-
-<div class = "options">
-
-  <div class = "option1">
-    <%= link_to 'Sign Up', users_path %>
+<div class = "container">
+  <div class = "titles">
+    <h1>CourseAssist</h1>
+    <p class = "subheading">Superior class selection</p>
   </div>
 
-  <div class = "option2">
-    <p>or</p> 
+  <div class = "options">
+
+    <div class = "option1">
+      <%= link_to 'Sign Up', users_path %>
+    </div>
+
+    <div class = "option2">
+      <p>or</p> 
+    </div>
+
+    <div class = "option3">
+      <p>Enter your uni: </p>
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+
+      <%= form_tag dashboards_path, :class => 'form' do %>
+        <%= text_field :user, 'uni', :class => 'col-md-2' %>
+        <%= submit_tag 'Enter', :class => 'btn btn-primary' %>
+      <% end %>
+    </div>
+
   </div>
-
-  <div class = "option3">
-    <p>Enter your uni: </p>
-    <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
-
-    <%= form_tag dashboards_path, :class => 'form' do %>
-      <%= label :user, :uni, 'UNI', :class => 'col-form-label' %>
-      <%= text_field :user, 'uni', :class => 'form-control' %>
-      <%= submit_tag 'Enter', :class => 'btn btn-primary' %>
-    <% end %>
-  </div>
-
 </div>
 
 

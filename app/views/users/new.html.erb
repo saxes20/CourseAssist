@@ -18,45 +18,52 @@
 </style>
 
 
-<%= link_to 'Sign In', articles_path %>
+<div class = "container">
 
-<h3>Hi, please provide some more info about yourself</h3>
-<%= form_tag users_path, class: 'form' do %>
+  <ul class = "nav justify-content-end">  
+    <li class = "nav-item">
+      <%= link_to 'Sign In', articles_path, :class => 'nav-link' %>
+    </li>
+  </ul>
 
-  <div class = "fields">
-    <div class = "field1">
-      <%= label :user, :first, 'First Name', class: 'col-form-label' %>
-      <%= text_field :user, :first, class:  'form-control' %>
+  <h3>Hi, please provide some more info about yourself</h3>
+  <%= form_tag users_path, class: 'form' do %>
+
+    <div class = "col-md-4">
+      <div class = "field1">
+        <%= label :user, :first, 'First Name', class: 'col-form-label' %>
+        <%= text_field :user, :first, class:  'form-control' %>
+      </div>
+      <div class = "field1">
+        <%= label :user, :last, 'Last Name', class: 'col-form-label' %>
+        <%= text_field :user, :last, class: 'form-control' %>
+      </div>
+      <div class = "field1">
+        <%= label :user, :uni, 'UNI', class: 'col-form-label' %>
+        <%= text_field :user, :uni, class: 'form-control' %>
+      </div>
+      <div class = "field1">
+        <%= label :user, :year, 'Year', class: 'col-form-label'  %>
+        <%= select :user, :year, [2026, 2025, 2024, 2023], {}, {class: 'form-control col-1'} %>
+      </div>
+      <div class = "field1">
+        <%= label :user, :school, 'School', class: 'col-form-label'  %>
+        <%= select :user, :school, ['CC','SEAS'], {}, {class: 'form-control col-1'} %>
+      </div>
+      <div class = "field1">
+        <%= label :user, :major, 'Major', :class => 'col-form-label'  %>
+        <%= select :user, :major, ['Computer Science', 'Economics'], {}, {:class => 'form-control col-1'} %>
+      </div>
+      <div class = "field1">
+        <%= label :user, :minor, 'Minor', :class => 'col-form-label'  %>
+        <%= select :user, :minor, ['Computer Science', 'Economics', 'None'], {}, {:class => 'form-control col-1'} %>
+      </div>
+      <div class = "field1">
+        <%= submit_tag 'Next', class: 'btn btn-primary' %>
+      </div>
     </div>
-    <div class = "field1">
-      <%= label :user, :last, 'Last Name', class: 'col-form-label' %>
-      <%= text_field :user, :last, class: 'form-control' %>
-    </div>
-    <div class = "field1">
-       <%= label :user, :uni, 'UNI', class: 'col-form-label' %>
-       <%= text_field :user, :uni, class: 'form-control' %>
-    </div>
-    <div class = "field1">
-      <%= label :user, :year, 'Year', class: 'col-form-label'  %>
-      <%= select :user, :year, [2026, 2025, 2024, 2023], {}, {class: 'form-control col-1'} %>
-    </div>
-    <div class = "field1">
-      <%= label :user, :school, 'School', class: 'col-form-label'  %>
-      <%= select :user, :school, ['CC','SEAS'], {}, {class: 'form-control col-1'} %>
-    </div>
-    <div class = "field1">
-      <%= label :user, :major, 'Major', :class => 'col-form-label'  %>
-      <%= select :user, :major, ['Computer Science', 'Economics'], {}, {:class => 'form-control col-1'} %>
-    </div>
-    <div class = "field1">
-      <%= label :user, :minor, 'Minor', :class => 'col-form-label'  %>
-      <%= select :user, :minor, ['Computer Science', 'Economics', 'None'], {}, {:class => 'form-control col-1'} %>
-    </div>
-    <div class = "field1">
-      <%= submit_tag 'Next', class: 'btn btn-primary' %>
-    </div>
-  </div>
   
-<% end %>
+  <% end %>
+  </div>
 
 </html>

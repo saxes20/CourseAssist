@@ -14,41 +14,82 @@
   .field1{
       margin: 20px 0px;
   }
+  .big{
+    margin-top: 40px;
+  }
+  .inline{
+    display: flex;
+    flex-direction: row;
+  }
+  .nav{
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+  }
 </style>
 
-<%= link_to 'Sign Out', articles_path %>
+<div class = "container">
 
-<h3>Hi, <%= @user.first %> <%= @user.last %>! Welcome to CourseAssist!</h3>
-<p>Uni: <%= @user.uni %></p>
-<p>Year: <%= @user.year %></p>
-<p>School: <%= @user.school %></p>
-<p>Major: <%= @user.major %></p>
-<p>Minor: <%= @user.minor %></p>
+  <ul class = "nav justify-content-end">
+    <li class = "nav-item">
+      <%= link_to 'Sign Out', articles_path, :class => 'nav-link' %>
+    </li>
+  </ul>
 
-<h4>Core Requirements:</h4>
-<% @school_reqs.each do |sr| %>
-  <p><%= link_to sr.course, courses_path(:id => sr.id) %></p>
-<% end %>
+  <h3>Hi, <%= @user.first %> <%= @user.last %>! Welcome to CourseAssist!</h3>
 
-<h4>Major Requirements:</h4>
-<% @major_reqs.each do |mjr| %>
-  <p><%= link_to mjr.course, courses_path(:id => mjr.id) %></p>
-<% end %>
+  <div class = "row big">
 
-<% if not @min_reqs =="NA" %>
-  <h4>Minor Requirements:</h4>
-  <% @minor_reqs.each do |mnr| %>
-    <p><%= link_to mnr.course, courses_path(:id => mnr.id) %></p>
+  <div class = "col-md-4">
+  <h5>Your info</h5>
+  <p>Uni: <%= @user.uni %></p>
+  <p>Year: <%= @user.year %></p>
+  <p>School: <%= @user.school %></p>
+  <p>Major: <%= @user.major %></p>
+  <p>Minor: <%= @user.minor %></p>
+  </div>
+
+  <div class = "col-md-4">
+  <h5>Core Requirements</h5>
+  <% @school_reqs.each do |sr| %>
+    <p><%= link_to sr.course, courses_path(:id => sr.id) %></p>
   <% end %>
-<% end %>
 
-<h4>Search for class</h4>
-<%= form_tag(dashboards_path, method: :get) do %>
-  <%= text_field_tag :search, params[:search], id: 'searchbar' %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
-<% @courses.each do |course| %>
-  <p><%= link_to course.course, courses_path(:id => course.id) %></p>
-<% end %>
+  <h5>Major Requirements</h5>
+  <% @major_reqs.each do |mjr| %>
+    <p><%= link_to mjr.course, courses_path(:id => mjr.id) %></p>
+  <% end %>
+
+  <% if not @min_reqs =="NA" %>
+    <h5>Minor Requirements</h5>
+    <% @minor_reqs.each do |mnr| %>
+      <p><%= link_to mnr.course, courses_path(:id => mnr.id) %></p>
+    <% end %>
+  <% end %>
+  </div>
+
+
+  <div class = "col-md-4">
+
+  <%= form_tag(dashboards_path, method: :get) do %>
+
+    <div class = "row">
+      <div class = "col-md-8">
+      <%= text_field_tag :search, params[:search], id: 'searchbar', :class => 'form-control' %>
+      </div>
+
+      <div class = "col-md-4">
+      <%= submit_tag "Search", :class => 'btn btn-primary', name: nil %>
+      </div>
+    </div>
+
+  <% end %>
+  <% @courses.each do |course| %>
+    <p><%= link_to course.course, courses_path(:id => course.id) %></p>
+  <% end %>
+  </div>
+  </div>
+
+  </div>
 
 </html>

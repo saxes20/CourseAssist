@@ -8,14 +8,24 @@
   p{
     font-size: 20px;
   }
-
+  .nav{
+    margin-bottom: 20px;
+  }
 </style>
 
-<%= link_to 'Back to Dashboard', dashboards_path %>
+<div class = "container">
 
-<div class="row">
-  <h3> Details about <em> <%= @course.course %> </em> </h3>
-  <p> Professor: <%= @course.prof %> </p>
-  <p> Pre-Requirements: <%= @course.preReqs %> </p>
-  <p> Course Description: <%= @course.description %> </p>
+  <ul class = "nav justify-content-end">  
+    <li class = "nav-item">
+      <%= link_to 'Back to Dashboard', dashboards_path, :class => 'nav-link' %>
+    </li>
+  </ul>
+
+  <div class="row">
+    <h3> Details about <em> <%= @course.course %> </em> </h3>
+    <p> Professor: <%= @course.prof %> </p>
+    <p> Pre-Requirements: <%= @course.preReqs %> </p>
+    <p> Course Description: <%= @course.description %> </p>
+  </div>
+
 </div>

@@ -11,46 +11,53 @@
       display: flex;
       flex-direction: column;
   }
-  .field1{
-      margin: 20px 0px;
-  }
+
 
 </style>
 
-<%= link_to 'Sign In', articles_path %>
-<%= link_to 'About', users_path %>
+<div class = "container">
 
-<h3>Please add the courses you took in the past semesters</h1>
+    <ul class = "nav justify-content-end">  
+        <li class = "nav-item">
+        <%= link_to 'Sign In', articles_path, :class => 'nav-link' %>
+        </li>
 
-<br>
-<br>
+        <li class = "nav-item">
+        <%= link_to 'About', users_path, :class => 'nav-link' %>
+        </li>
+    </ul>
 
-<%= form_tag addcourses_path, class: 'form' do %>
+    <h3>Please add the courses you took in the past semesters</h1>
 
-    <div class = "fields">
+    <%= form_tag addcourses_path, class: 'form' do %>
 
-        <div class = "field1">
-            <%= label :addcourse, :course, 'Course', :class => 'col-form-label' %>
-            <%= collection_select :addcourse, :course, Course.all, :course, :course, options = {:prompt => 'Select a Class...'}, html_options = {class: 'form-control col-1'} %>
+        <div class = "col-md-6">
+
+            <div class = "field1">
+                <%= label :addcourse, :course, 'Course', :class => 'col-form-label' %>
+                <%= collection_select :addcourse, :course, Course.all, :course, :course, options = {:prompt => 'Select a Class...'}, html_options = {class: 'form-control col-1'} %>
+            </div>
+        
+            <div class = "field1">
+                <%= label :addcourse, :semester, 'Semester', class: 'col-form-label'  %>
+                <%= select :addcourse, :semester, ['Fall', 'Spring'], {}, {class: 'form-control col-1'} %>
+            </div>
+
+            <div class = "field1">
+            <%= label :addcourse, :year, 'Year', class: 'col-form-label'  %>
+            <%= select :addcourse, :year, [2018, 2019, 2020, 2021, 2022], {}, {class: 'form-control col-1'} %>
+            </div>
+
+            <br>
+            
+            <div class = "field1">
+                <%= submit_tag 'Add', :class => 'btn btn-primary' %>
+            </div>
         </div>
-       
-        <div class = "field1">
-            <%= label :addcourse, :semester, 'Semester', class: 'col-form-label'  %>
-            <%= select :addcourse, :semester, ['Fall', 'Spring'], {}, {class: 'form-control col-1'} %>
-        </div>
+    
+    <% end %>
+    <br>
+    <%= link_to 'Finish Registration', dashboards_path %>
 
-        <div class = "field1">
-        <%= label :addcourse, :year, 'Year', class: 'col-form-label'  %>
-        <%= select :addcourse, :year, [2018, 2019, 2020, 2021, 2022], {}, {class: 'form-control col-1'} %>
-        </div>
-
-        <div class = "field1">
-            <%= submit_tag 'Add', :class => 'btn btn-primary' %>
-        </div>
-    </div>
-  
-<% end %>
-<br>
-<%= link_to 'Finish Registration', dashboards_path %>
-
+</div>
 </html>
