@@ -235,7 +235,6 @@ GEM
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
     rubyzip (2.3.2)
-    select2-rails (4.0.13)
     selenium-webdriver (4.6.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -302,7 +301,6 @@ DEPENDENCIES
   rails (~> 7.0.4)
   rails-controller-testing
   rspec-rails
-  select2-rails
   selenium-webdriver
   simplecov
   sprockets-rails

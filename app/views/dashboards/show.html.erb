@@ -60,7 +60,6 @@
     list-style-type: none;
   }
   .emphasis{
-    font-weight: 600;
     color: #404042;
   }
   button, .button{
@@ -252,7 +251,7 @@
         <% end %>
         </ul>
 
-        <% if not @min_reqs =="NA" %>
+        <% if @minor_reqs %>
           <h5>Minor Requirements:</h5>
           <ul>
           <% @minor_reqs.each do |mnr| %>
