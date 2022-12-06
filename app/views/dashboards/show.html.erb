@@ -49,12 +49,22 @@
     height: 450px;
     overflow: scroll;
   }
+  .row2{
+
+  }
   .inline{
     display: flex;
     flex-direction: row;
   }
   li{
     list-style-type: none;
+  }
+  .emphasis{
+    font-weight: 600;
+    color: #404042;
+  }
+  button, .button{
+    width: 100%;
   }
 </style>
 
@@ -70,59 +80,71 @@
 
   <div class = "row padding">
 
-  <div class = "col-md-6 row1">
+  <div class = "col-md-5 row1">
     <%= form_tag(dashboards_path, method: :get) do %>
       <div class = "row bar">
         <div class = "col-md-8">
           <%= text_field_tag :search, params[:search], id: 'searchbar', :class => 'form-control' %>
         </div>
         <div class = "col-md-4">
-          <%= submit_tag "Search", name: nil, :class => 'btn btn-primary' %>
+          <%= submit_tag "Search", name: nil, :class => 'btn btn-primary button' %>
         </div>
       </div>
     <% end %>
     <% @courses.each do |course| %>
       <div class = "my-row row">
-        <div class = "col-md-8">
+        <div class = "col-md-6">
           <p><%= link_to courses_path(:id => course.id) do %> 
-          <%= course.course %> (<em><%= course.time %></em>)
+          <%= course.course %>
           <% end %></p>
         </div>
-        <div class = "col-md-4">
+        <div class = "col-md-3"> 
+          <p class = "emphasis"><%= course.time %></p>
+        </div>
+        <div class = "col-md-3">
           <%= button_to "Add", dashboards_path(:id => course.id), method: "put", :class => 'btn btn-outline-primary' %> 
         </div>
       </div>
     <% end %>
     </div>
 
-  <div class = "col-md-6 row1">
+  <div class = "col-md-1">
+  </div>
+
+  <div class = "col-md-5 row1">
       <h5>Current Schedule:</h5>
       <p>Monday: </p>
       <ul>
       <% @schedule[0].each do |s| %>
-        <div class = "row inline">
-          <div class = "col-md-8">
-            <li><%= link_to courses_path(:id => s.id) do %> 
-              <%= s.course %> (<em><%= s.time %></em>)
-            <% end %></li>
+        <div class = "my-row row">
+          <div class = "col-md-6">
+            <p><%= link_to courses_path(:id => s.id) do %> 
+            <%= s.course %>
+            <% end %></p>
           </div>
-          <div class = "col-md-4">
+          <div class = "col-md-3"> 
+            <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
+          </div>
+          <div class = "col-md-3">
             <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
-        </div>
+      </div>
         <% end %>
       </ul>
       
       <p>Tuesday: </p>
       <ul>
       <% @schedule[1].each do |s| %>
-        <div class = "row inline">
-          <div class = "col-md-8">
-            <li><%= link_to courses_path(:id => s.id) do %> 
-              <%= s.course %> (<em><%= s.time %></em>)
-            <% end %></li>
+        <div class = "my-row row">
+          <div class = "col-md-6">
+            <p><%= link_to courses_path(:id => s.id) do %> 
+            <%= s.course %>
+            <% end %></p>
           </div>
-          <div class = "col-md-4">
+          <div class = "col-md-3"> 
+            <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
+          </div>
+          <div class = "col-md-3">
             <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
         </div>
@@ -132,13 +154,16 @@
       <p>Wednesday: </p>
       <ul>
       <% @schedule[2].each do |s| %>
-        <div class = "row inline">
-          <div class = "col-md-8">
-            <li><%= link_to courses_path(:id => s.id) do %> 
-              <%= s.course %> (<em><%= s.time %></em>)
-            <% end %></li>
+        <div class = "my-row row">
+          <div class = "col-md-6">
+            <p><%= link_to courses_path(:id => s.id) do %> 
+            <%= s.course %>
+            <% end %></p>
           </div>
-          <div class = "col-md-4">
+          <div class = "col-md-3"> 
+            <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
+          </div>
+          <div class = "col-md-3">
             <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
         </div>
@@ -148,13 +173,16 @@
       <p>Thursday: </p>
       <ul>
       <% @schedule[3].each do |s| %>
-        <div class = "row inline">
-          <div class = "col-md-8">
-            <li><%= link_to courses_path(:id => s.id) do %> 
-              <%= s.course %> (<em><%= s.time %></em>)
-            <% end %></li>
+        <div class = "my-row row">
+          <div class = "col-md-6">
+            <p><%= link_to courses_path(:id => s.id) do %> 
+            <%= s.course %>
+            <% end %></p>
           </div>
-          <div class = "col-md-4">
+          <div class = "col-md-3"> 
+            <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
+          </div>
+          <div class = "col-md-3">
             <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
         </div>
@@ -164,13 +192,16 @@
       <p>Friday: </p>
       <ul>
       <% @schedule[4].each do |s| %>
-        <div class = "row inline">
-          <div class = "col-md-8">
-            <li><%= link_to courses_path(:id => s.id) do %> 
-              <%= s.course %> (<em><%= s.time %></em>)
-            <% end %></li>
+        <div class = "my-row row">
+          <div class = "col-md-6">
+            <p><%= link_to courses_path(:id => s.id) do %> 
+            <%= s.course %>
+            <% end %></p>
           </div>
-          <div class = "col-md-4">
+          <div class = "col-md-3"> 
+            <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
+          </div>
+          <div class = "col-md-3">
             <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
         </div>
@@ -182,30 +213,22 @@
 
   <div class = "row">
 
-  <div class = "col-md-6">
-    <h5>Basic info</h5>
-    <p>Uni: <%= @user.uni %></p>
-    <p>Year: <%= @user.year %></p>
-    <p>School: <%= @user.school %></p>
-    <p>Major: <%= @user.major %></p>
-    <p>Minor: <%= @user.minor %></p>
-    </div>
-
-    
-
-      <div class = "col-md-6">
+      <div class = "col-md-5">
         <h5>Core Requirements:</h5>
         <ul>
         <% @school_reqs.each do |sr| %>
-          <div class = "row inline">
-            <div class = "col-md-8">
-              <li><%= link_to courses_path(:id => sr.id) do %> 
-                <%= sr.course %> (<em><%= sr.time %></em>)
-              <% end %></li>
+          <div class = "my-row row">
+            <div class = "col-md-6">
+              <p><%= link_to courses_path(:id => sr.id) do %> 
+              <%= sr.course %>
+              <% end %></p>
             </div>
-            <div class = "col-md-4">
-              <%= button_to "Add", dashboards_path(:id => sr.id), method: "put", :class => 'btn btn-outline-primary'%> 
-            </div> 
+            <div class = "col-md-3"> 
+              <p class = "emphasis"><%= sr.time %></p>
+            </div>
+            <div class = "col-md-3">
+              <%= button_to "Add", dashboards_path(:id => sr.id), method: "put", :class => 'btn btn-outline-primary' %> 
+            </div>
           </div>
         <% end %>
         </ul>
@@ -213,15 +236,18 @@
         <h5>Major Requirements:</h5>
         <ul>
         <% @major_reqs.each do |mjr| %>
-          <div class = "row inline">
-            <div class = "col-md-8">
-              <li><%= link_to courses_path(:id => mjr.id) do %> 
-                <%= mjr.course %> (<em><%= mjr.time %></em>)
-              <% end %></li>
+          <div class = "my-row row">
+            <div class = "col-md-6">
+              <p><%= link_to courses_path(:id => mjr.id) do %> 
+              <%= mjr.course %>
+              <% end %></p>
             </div>
-            <div class = "col-md-4">
-              <%= button_to "Add", dashboards_path(:id => mjr.id), method: "put", :class => 'btn btn-outline-primary'%> 
-            </div> 
+            <div class = "col-md-3"> 
+              <p class = "emphasis"><%= mjr.time %></p>
+            </div>
+            <div class = "col-md-3">
+              <%= button_to "Add", dashboards_path(:id => mjr.id), method: "put", :class => 'btn btn-outline-primary' %> 
+            </div>
           </div>
         <% end %>
         </ul>
@@ -230,20 +256,24 @@
           <h5>Minor Requirements:</h5>
           <ul>
           <% @minor_reqs.each do |mnr| %>
-            <div class = "row inline">
-              <div class = "col-md-8">
-                <li><%= link_to courses_path(:id => mnr.id) do %> 
-                  <%= mnr.course %> (<em><%= mnr.time %></em>)
-                <% end %></li>
+            <div class = "my-row row">
+              <div class = "col-md-6">
+                <p><%= link_to courses_path(:id => mnr.id) do %> 
+                <%= mnr.course %>
+                <% end %></p>
               </div>
-              <div class = "col-md-4">
-                <%= button_to "Add", dashboards_path(:id => mnr.id), method: "put", :class => 'btn btn-outline-primary'%> 
-              </div> 
-            </div>
+              <div class = "col-md-3"> 
+                <p class = "emphasis"><%= mnr.time %></p>
+              </div>
+              <div class = "col-md-3">
+                <%= button_to "Add", dashboards_path(:id => mnr.id), method: "put", :class => 'btn btn-outline-primary' %> 
+              </div>
+          </div>
           <% end %>
           </ul>
         <% end %>
       </div>
+
 
   </div>
 
