@@ -218,7 +218,7 @@
   <div class = "row">
 
       <div class = "col-md-6">
-        <h5>Core Requirements:</h5>
+        <h5><%= @user.school %> Core Requirements:</h5>
         <ul>
         <% @school_reqs.each do |sr| %>
           <div class = "my-row row">
@@ -237,7 +237,7 @@
         <% end %>
         </ul>
 
-        <h5>Major Requirements:</h5>
+        <h5><%= @user.major %> Major Requirements:</h5>
         <ul>
         <% @major_reqs.each do |mjr| %>
           <div class = "my-row row">
@@ -257,7 +257,7 @@
         </ul>
 
         <% if @minor_reqs.length() > 0 %>
-          <h5>Minor Requirements:</h5>
+          <h5><%= @user.minor %> Minor Requirements:</h5>
           <ul>
           <% @minor_reqs.each do |mnr| %>
             <div class = "my-row row">
