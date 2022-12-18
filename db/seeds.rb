@@ -156,7 +156,7 @@ minor_reqs = [{:subject => 'Economics', :course => 'ECON UN1105 Principles of Ec
               {:subject => 'Operations Research', :course => 'IEOR E3658 Probability for Engineers'},
               {:subject => 'Operations Research', :course => 'IEOR E3106 Stochastic Systems and Applications'},
               {:subject => 'Operations Research', :course => 'IEOR E3608 Foundations of Optimization'},
-              {:subject => 'Operations Research', :course => 'IEOR E3404 Simulation Modeling and Analysis'},
+              {:subject => 'Operations Research', :course => 'IEOR E3404 Simulation'},
               {:subject => 'Computer Science', :course => 'COMS W1004 Introduction to Computer Science'},
                 {:subject => 'Computer Science', :course => 'COMS 3134 Data Structures in Java'},
                 {:subject => 'Computer Science', :course => 'COMS 3157 Advanced Programming'},
