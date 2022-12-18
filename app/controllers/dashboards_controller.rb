@@ -100,6 +100,8 @@ class DashboardsController < ApplicationController
           end
         end
 
+        @course_recs = @course_recs.sample(4)
+
       else
         flash[:notice] = "User not found. Please sign up first."
         redirect_to root_path
