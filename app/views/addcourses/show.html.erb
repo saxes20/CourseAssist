@@ -1,10 +1,104 @@
-<h1>Details about <em><%= @uni %></em></h1>
+<html>
 
-<%= link_to 'Back to Homepage', users_path %>
-<%= label :course, 'Course:', :class => 'col-form-label' %>
-<%= text_field :course, 'course', :class => 'form-control' %>
+<style>
+  h3, p{
+    font-family: sans-serif;
+  }
+  h3{
+    font-size: 40px;
+  }
+  .fields{
+      display: flex;
+      flex-direction: column;
+  }
+  .progress{
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+  .my-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .row{
+    display: flex;
+    flex-direction: row;
+  }
+  .padding{
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  .inline{
+    display: flex;
+    flex-direction: row;
+  }
+  .bar{
+    margin-bottom: 15px;
+  }
+  button, .button{
+    width: 100%;
+  }
+  .row1{
+    height: 450px;
+    overflow: scroll;
+  }
+  .bar{
+    margin-bottom: 15px;
+  }
 
-<%= label :semester, :semester, 'Semester: ', :class => 'col-form-label'  %>
-<%= select :semester, :semester, ['F18','S19','F19','S20','F20','S21','F21','S22','F22'], {}, {:class => 'form-control col-1'} %>
+</style>
 
-<%= submit_tag 'Next', :class => 'btn btn-primary' %>
+<div class = "container">
+
+    <ul class = "nav justify-content-end">  
+        <li class = "nav-item">
+        <%= link_to 'Sign In', articles_path, :class => 'nav-link' %>
+        </li>
+
+        <li class = "nav-item">
+        <%= link_to 'About', users_path, :class => 'nav-link' %>
+        </li>
+    </ul>
+
+    <div class="progress">
+        <div class="progress-bar w-75 progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <h3 class="pb-4">Please add the courses you took in the past semesters</h3>
+
+    <% if flash[:added] %>
+        <div class="alert alert-success" role="alert">
+            <%= flash[:added] %>
+        </div>
+    <% end %>
+
+    <div class = "col-md-10">
+        <%= form_tag(addcourses_path, method: :get) do %>
+        <div class = "row bar">
+            <div class = "col-md-9">
+            <%= text_field_tag :search, params[:search], id: 'searchbar', :class => 'form-control' %>
+            </div>
+            <div class = "col-md-3">
+            <%= submit_tag "Search", name: nil, :class => 'btn btn-primary button' %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <div class = "col-md-10 row1">
+        <% @courses.each do |course| %>
+        <div class = "my-row row">
+            <div class = "col-md-10 pb-2">
+            <p><%= course.course %></p>
+            </div>
+            <div class = "col-md-2 pb-2">
+            <%= button_to "Add", addcourses_path(:id => course.id), method: "put", :class => 'btn btn-outline-primary' %> 
+            </div>
+        </div>
+    <% end %>
+    <br>
+    </div>
+    <div class='pb-4 pt-4 col-md-10'>
+    <%= button_to "Finish Registration", dashboards_path, method: "get", :class => 'btn btn-outline-success' %>
+    </div>
+</div>
+</html>

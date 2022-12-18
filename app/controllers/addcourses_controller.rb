@@ -2,15 +2,15 @@ class AddcoursesController < ApplicationController
 
     def index
       @uni = session[:uni]
+      @password = session[:pwd]
     end
 
     def show
-      redirect_to action: "new"
+      @courses = Course.search(params[:search])
     end
 
     def new
-      #creates new user/course pairing
-      #redirect_to addcourses
+
     end
 
     def create
@@ -19,6 +19,16 @@ class AddcoursesController < ApplicationController
                                       semester: addcourse_params[:semester],
                                       year: addcourse_params[:year])
       @courseyear = @addcourse.year
+      redirect_to addcourses_path
+    end
+
+    def update
+      id = params[:id]
+      @course = Course.find(id)
+      @uni = session[:uni]
+      @addcourse  = Addcourse.create!(uni: @uni,
+                                      course: @course.course)
+      flash[:added] = "Successfully added #{@course.course}"
       redirect_to addcourses_path
     end
 

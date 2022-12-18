@@ -8,7 +8,13 @@ class DashboardsController < ApplicationController
       #puts @uni
       #puts "uni above ^^^"
       @uni = session[:uni]
+      @password = session[:pwd]
       @user = User.find_by(uni: @uni)
+      
+      if @user and @user.password != @password
+        flash[:notice] = "Wrong password. Please try again."
+        redirect_to root_path
+      end
 
       found_courses = Studentschedule.where(uni: @uni)
       @schedule = [[], [], [], [], []] # Monday Tuesday Wednesday Thursday Friday
@@ -19,22 +25,18 @@ class DashboardsController < ApplicationController
         if ctime.include? "M"
           @schedule[0] << thecourse
         end
+        if ctime.include? "T"
+          @schedule[1] << thecourse
+        end
         if ctime.include? "W"
           @schedule[2] << thecourse
+        end
+        if ctime.include? "R"
+          @schedule[3] << thecourse
         end
         if ctime.include? "F"
           @schedule[4] << thecourse
         end
-
-        if ctime.include? "TTh"
-          @schedule[1] << thecourse
-          @schedule[3] << thecourse
-        elsif ctime.include? "Th"
-          @schedule[3] << thecourse
-        elsif ctime.include? "T"
-          @schedule[1] << thecourse
-        end
-
       end
       
       @thetakencourses = Addcourse.where(uni: @uni)
@@ -91,8 +93,10 @@ class DashboardsController < ApplicationController
 
     def create
       @user = user_params["uni"]
+      @password = user_params["pwd"]
       #puts @user
       session[:uni] = @user
+      session[:pwd] = @password
       redirect_to dashboards_path
     end
 
@@ -114,6 +118,6 @@ class DashboardsController < ApplicationController
     # Making "internal" methods private is not required, but is a common practice.
     # This helps make clear which methods respond to requests, and which ones do not.
     def user_params
-      params.require(:user).permit(:uni, :course)
+      params.require(:user).permit(:uni, :pwd, :course)
     end
   end

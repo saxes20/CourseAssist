@@ -55,17 +55,20 @@
   <div class = "col-md-4">
 
     <div class = "option3">
-      <h5 class = "padding lead">Enter your uni: </h5>
+      <h5 class = "padding lead">Enter your UNI and password: </h5>
       <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
+      <div class="alert alert-danger col-md-10" role="alert"><%= flash[:notice] %></div>
       <% end %>
 
       <%= form_tag dashboards_path, :class => 'form' do %>
         <div class = "row">
-          <div class = "col-md-8">
+          <div class = "col-md-8 pt-2">
             <%= text_field :user, 'uni', :class => 'form-control' %>
           </div>
-          <div class = "col-md-4">
+          <div class = "col-md-8 pt-2">
+            <%= password_field :user, 'pwd', :class => 'form-control' %>
+          </div>
+          <div class = "col-md-4 pt-2">
             <%= submit_tag 'Enter', :class => 'btn btn-primary' %>
           </div>
         </div>

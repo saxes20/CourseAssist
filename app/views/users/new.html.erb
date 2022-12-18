@@ -51,6 +51,10 @@
         <%= text_field :user, :uni, class: 'form-control' %>
       </div>
       <div class = "field1">
+        <%= label :user, :password, 'Password', class: 'col-form-label' %>
+        <%= text_field :user, :password, class: 'form-control' %>
+      </div>
+      <div class = "field1">
         <%= label :user, :year, 'Year', class: 'col-form-label'  %>
         <%= select :user, :year, [2026, 2025, 2024, 2023], {}, {class: 'form-control col-1'} %>
       </div>
@@ -236,7 +240,7 @@
         'Yiddish Studies'], {}, {:class => 'form-control col-1'} %>
       </div>
       <br>
-      <div class = "field1">
+      <div class = "field1 pb-3">
         <%= submit_tag 'Next', class: 'btn btn-primary' %>
       </div>
     </div>
