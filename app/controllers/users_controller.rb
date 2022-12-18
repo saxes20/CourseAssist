@@ -2,7 +2,9 @@ class UsersController < ApplicationController
     def index
     end
     def show
-      redirect_to action: "new"
+      if params[:uni]
+        @past_user = User.find_by(uni: params[:uni])
+      end
     end
   
     def new
@@ -14,6 +16,13 @@ class UsersController < ApplicationController
       #@users = User.create!(user_params)
       #@user = User.find params[:id]
       #flash[:notice] = "#{@user} was successfully created."
+
+      prev_user = User.find_by(uni: user_params["uni"])
+      if prev_user
+        user_id = prev_user.id
+        User.delete(user_id)
+      end
+
       @user  = User.create!(user_params)
       session[:uni] = @user.uni
       session[:pwd] = @user.password

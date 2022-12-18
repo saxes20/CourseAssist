@@ -1,1 +1,461 @@
-<h2>Details about student</h2>
+<html>
+
+<style>
+  h3, p{
+    font-family: sans-serif;
+  }
+  h3{
+    font-size: 40px;
+  }
+  .fields{
+      display: flex;
+      flex-direction: column;
+  }
+  .field1{
+
+  }
+  .progress{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+</style>
+
+
+<div class = "container">
+
+  <ul class = "nav justify-content-end">  
+    <li class = "nav-item">
+      <%= link_to 'Sign In', articles_path, :class => 'nav-link' %>
+    </li>
+  </ul>
+
+  <div class="progress">
+    <div class="progress-bar w-25 progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+
+  <h3>Hi, please provide some more info about yourself</h3>
+  
+  <%= form_tag users_path, class: 'form' do %>
+
+    <div class = "col-md-4">
+      <div class = "field1">
+        <% if params[:uni] %>
+            <%= label :user, :first, 'First Name', class: 'col-form-label' %>
+            <%= text_field :user, :first, class:  'form-control', value: @past_user.first %>
+        <% else %>
+            <%= label :user, :first, 'First Name', class: 'col-form-label' %>
+            <%= text_field :user, :first, class:  'form-control' %>
+        <% end %>
+      </div>
+      <div class = "field1">
+        <% if params[:uni] %>
+            <%= label :user, :last, 'Last Name', class: 'col-form-label' %>
+            <%= text_field :user, :last, class: 'form-control', value: @past_user.last  %>
+        <% else %>
+            <%= label :user, :last, 'Last Name', class: 'col-form-label' %>
+            <%= text_field :user, :last, class: 'form-control'  %>
+        <% end %>
+      </div>
+      <div class = "field1">
+        <% if params[:uni] %>
+            <%= label :user, :uni, 'UNI', class: 'col-form-label' %>
+            <%= text_field :user, :uni, class: 'form-control', value: @past_user.uni  %>
+        <% else %>
+            <%= label :user, :uni, 'UNI', class: 'col-form-label' %>
+            <%= text_field :user, :uni, class: 'form-control'  %>
+        <% end %>
+      </div>
+      <div class = "field1">
+        <% if params[:uni] %>
+            <%= label :user, :password, 'Password', class: 'col-form-label' %>
+            <%= text_field :user, :password, class: 'form-control', value: @past_user.password  %>
+        <% else %>
+            <%= label :user, :password, 'Password', class: 'col-form-label' %>
+            <%= text_field :user, :password, class: 'form-control'  %>
+        <% end %>
+      </div>
+      <div class = "field1">
+        <% if params[:uni] %>
+            <%= label :user, :year, 'Year', class: 'col-form-label'  %>
+            <%= select :user, :year, options_for_select([2026, 2025, 2024, 2023], @past_user.year), {}, {class: 'form-control col-1'} %>
+        <% else %>
+            <%= label :user, :year, 'Year', class: 'col-form-label'  %>
+            <%= select :user, :year, options_for_select([2026, 2025, 2024, 2023]), {}, {class: 'form-control col-1'} %>
+        <% end %>
+      </div>
+      <div class = "field1">
+        <% if params[:uni] %>
+            <%= label :user, :school, 'School', class: 'col-form-label'  %>
+            <%= select :user, :school, options_for_select(['CC','SEAS'], @past_user.school), {}, {class: 'form-control col-1'} %>
+         <% else %>
+            <%= label :user, :school, 'School', class: 'col-form-label'  %>
+            <%= select :user, :school, options_for_select(['CC','SEAS']), {}, {class: 'form-control col-1'} %>
+        <% end %>
+      </div>
+      <div class = "field1">
+        <% if params[:uni] %>
+            <%= label :user, :major, 'Major', :class => 'col-form-label'  %>
+            <%= select :user, :major,  options_for_select(['Ancient Studies',
+            'Anthropology',
+            'Applied Mathematics',
+            'Archaeology',
+            'Architecture',
+            'Art History',
+            'Art History and Visual Arts',
+            'Astronomy',
+            'Astrophysics',
+            'Biology',
+            'Biochemistry',
+            'Biophysics',
+            'Business Management (Special Concentration)',
+            'Chemical Physics',
+            'Chemistry',
+            'Classics',
+            'Colloquia, Interdepartmental Seminars, and Professional School Offerings',
+            'Comparative Literature and Society',
+            'Computer Science',
+            'Computer Science-Mathematics',
+            'Creative Writing',
+            'Dance',
+            'Data Science',
+            'Drama and Theatre Arts',
+            'Earth Science',
+            'East Asian Studies',
+            'Economics',
+            'Economics-Mathematics',
+            'Economics-Philosophy',
+            'Economics-Political Science',
+            'Economics-Statistics',
+            'Education (Special Concentration)',
+            'English',
+            'Environmental Biology',
+            'Environmental Chemistry',
+            'Environmental Science',
+            'Ethnicity and Race Studies',
+            'Evolutionary Biology of the Human Species',
+            'Film and Media Studies',
+            'Financial Economics',
+            'French',
+            'French and Francophone Studies',
+            'German Literature and Cultural History',
+            'Hellenic Studies (Modern Greek) (Special Concentration)',
+            'Hispanic Studies',
+            'History',
+            'History and Philosophy of Science (Selected Coursework)',
+            'History and Theory of Architecture',
+            'Human Rights',
+            'Information Science',
+            'Italian',
+            'Jazz Studies (Special Concentration)',
+            'Jewish Studies (Special Concentration)',
+            'Language Resource Center',
+            'Latin American and Caribbean Studies',
+            'Linguistics',
+            'Mathematics',
+            'Mathematics-Statistics',
+            'Medieval and Renaissance Studies (Special Concentration)',
+            'Middle Eastern, South Asian, and African Studies',
+            'Music',
+            'Neuroscience and Behavior',
+            'Philosophy',
+            'Physical Education',
+            'Physics',
+            'Political Science',
+            'Political Science-Statistics',
+            'Portuguese Studies',
+            'Psychology',
+            'Public Health (Special Concentration)',
+            'Operations Research',
+            'Regional Studies',
+            'Religion',
+            'Russian Language and Culture',
+            'Russian Literature',
+            'Russian Literature and Culture',
+            'Slavic (Non-Russian) Language and Culture',
+            'Slavic Studies',
+            'Sociology',
+            'Statistics',
+            'Sustainable Development',
+            'Urban Studies',
+            'Visual Arts',
+            'Womens and Gender Studies',
+            'Yiddish Studies'], @past_user.major), {}, {:class => 'form-control col-1'} %>
+        <% else %>
+            <%= label :user, :major, 'Major', :class => 'col-form-label'  %>
+            <%= select :user, :major,  options_for_select(['Ancient Studies',
+            'Anthropology',
+            'Applied Mathematics',
+            'Archaeology',
+            'Architecture',
+            'Art History',
+            'Art History and Visual Arts',
+            'Astronomy',
+            'Astrophysics',
+            'Biology',
+            'Biochemistry',
+            'Biophysics',
+            'Business Management (Special Concentration)',
+            'Chemical Physics',
+            'Chemistry',
+            'Classics',
+            'Colloquia, Interdepartmental Seminars, and Professional School Offerings',
+            'Comparative Literature and Society',
+            'Computer Science',
+            'Computer Science-Mathematics',
+            'Creative Writing',
+            'Dance',
+            'Data Science',
+            'Drama and Theatre Arts',
+            'Earth Science',
+            'East Asian Studies',
+            'Economics',
+            'Economics-Mathematics',
+            'Economics-Philosophy',
+            'Economics-Political Science',
+            'Economics-Statistics',
+            'Education (Special Concentration)',
+            'English',
+            'Environmental Biology',
+            'Environmental Chemistry',
+            'Environmental Science',
+            'Ethnicity and Race Studies',
+            'Evolutionary Biology of the Human Species',
+            'Film and Media Studies',
+            'Financial Economics',
+            'French',
+            'French and Francophone Studies',
+            'German Literature and Cultural History',
+            'Hellenic Studies (Modern Greek) (Special Concentration)',
+            'Hispanic Studies',
+            'History',
+            'History and Philosophy of Science (Selected Coursework)',
+            'History and Theory of Architecture',
+            'Human Rights',
+            'Information Science',
+            'Italian',
+            'Jazz Studies (Special Concentration)',
+            'Jewish Studies (Special Concentration)',
+            'Language Resource Center',
+            'Latin American and Caribbean Studies',
+            'Linguistics',
+            'Mathematics',
+            'Mathematics-Statistics',
+            'Medieval and Renaissance Studies (Special Concentration)',
+            'Middle Eastern, South Asian, and African Studies',
+            'Music',
+            'Neuroscience and Behavior',
+            'Philosophy',
+            'Physical Education',
+            'Physics',
+            'Political Science',
+            'Political Science-Statistics',
+            'Portuguese Studies',
+            'Psychology',
+            'Public Health (Special Concentration)',
+            'Operations Research',
+            'Regional Studies',
+            'Religion',
+            'Russian Language and Culture',
+            'Russian Literature',
+            'Russian Literature and Culture',
+            'Slavic (Non-Russian) Language and Culture',
+            'Slavic Studies',
+            'Sociology',
+            'Statistics',
+            'Sustainable Development',
+            'Urban Studies',
+            'Visual Arts',
+            'Womens and Gender Studies',
+            'Yiddish Studies']), {}, {:class => 'form-control col-1'} %>
+        <% end %>
+      </div>
+      <div class = "field1">
+        <% if params[:uni] %>
+            <%= label :user, :minor, 'Minor', :class => 'col-form-label'  %>
+            <%= select :user, :minor,  options_for_select(['None',
+            'Ancient Studies',
+            'Anthropology',
+            'Applied Mathematics',
+            'Archaeology',
+            'Architecture',
+            'Art History',
+            'Art History and Visual Arts',
+            'Astronomy',
+            'Astrophysics',
+            'Biology',
+            'Biochemistry',
+            'Biophysics',
+            'Business Management (Special Concentration)',
+            'Chemical Physics',
+            'Chemistry',
+            'Classics',
+            'Colloquia, Interdepartmental Seminars, and Professional School Offerings',
+            'Comparative Literature and Society',
+            'Computer Science',
+            'Computer Science-Mathematics',
+            'Creative Writing',
+            'Dance',
+            'Data Science',
+            'Drama and Theatre Arts',
+            'Earth Science',
+            'East Asian Studies',
+            'Economics',
+            'Economics-Mathematics',
+            'Economics-Philosophy',
+            'Economics-Political Science',
+            'Economics-Statistics',
+            'Education (Special Concentration)',
+            'English',
+            'Environmental Biology',
+            'Environmental Chemistry',
+            'Environmental Science',
+            'Ethnicity and Race Studies',
+            'Evolutionary Biology of the Human Species',
+            'Film and Media Studies',
+            'Financial Economics',
+            'French',
+            'French and Francophone Studies',
+            'German Literature and Cultural History',
+            'Hellenic Studies (Modern Greek) (Special Concentration)',
+            'Hispanic Studies',
+            'History',
+            'History and Philosophy of Science (Selected Coursework)',
+            'History and Theory of Architecture',
+            'Human Rights',
+            'Information Science',
+            'Italian',
+            'Jazz Studies (Special Concentration)',
+            'Jewish Studies (Special Concentration)',
+            'Language Resource Center',
+            'Latin American and Caribbean Studies',
+            'Linguistics',
+            'Mathematics',
+            'Mathematics-Statistics',
+            'Medieval and Renaissance Studies (Special Concentration)',
+            'Middle Eastern, South Asian, and African Studies',
+            'Music',
+            'Neuroscience and Behavior',
+            'Philosophy',
+            'Physical Education',
+            'Physics',
+            'Political Science',
+            'Political Science-Statistics',
+            'Portuguese Studies',
+            'Psychology',
+            'Public Health (Special Concentration)',
+            'Operations Research',
+            'Regional Studies',
+            'Religion',
+            'Russian Language and Culture',
+            'Russian Literature',
+            'Russian Literature and Culture',
+            'Slavic (Non-Russian) Language and Culture',
+            'Slavic Studies',
+            'Sociology',
+            'Statistics',
+            'Sustainable Development',
+            'Urban Studies',
+            'Visual Arts',
+            'Womens and Gender Studies',
+            'Yiddish Studies'], @past_user.minor), {}, {:class => 'form-control col-1'} %>
+        <% else %>
+            <%= label :user, :minor, 'Minor', :class => 'col-form-label'  %>
+            <%= select :user, :minor,  options_for_select(['None',
+            'Ancient Studies',
+            'Anthropology',
+            'Applied Mathematics',
+            'Archaeology',
+            'Architecture',
+            'Art History',
+            'Art History and Visual Arts',
+            'Astronomy',
+            'Astrophysics',
+            'Biology',
+            'Biochemistry',
+            'Biophysics',
+            'Business Management (Special Concentration)',
+            'Chemical Physics',
+            'Chemistry',
+            'Classics',
+            'Colloquia, Interdepartmental Seminars, and Professional School Offerings',
+            'Comparative Literature and Society',
+            'Computer Science',
+            'Computer Science-Mathematics',
+            'Creative Writing',
+            'Dance',
+            'Data Science',
+            'Drama and Theatre Arts',
+            'Earth Science',
+            'East Asian Studies',
+            'Economics',
+            'Economics-Mathematics',
+            'Economics-Philosophy',
+            'Economics-Political Science',
+            'Economics-Statistics',
+            'Education (Special Concentration)',
+            'English',
+            'Environmental Biology',
+            'Environmental Chemistry',
+            'Environmental Science',
+            'Ethnicity and Race Studies',
+            'Evolutionary Biology of the Human Species',
+            'Film and Media Studies',
+            'Financial Economics',
+            'French',
+            'French and Francophone Studies',
+            'German Literature and Cultural History',
+            'Hellenic Studies (Modern Greek) (Special Concentration)',
+            'Hispanic Studies',
+            'History',
+            'History and Philosophy of Science (Selected Coursework)',
+            'History and Theory of Architecture',
+            'Human Rights',
+            'Information Science',
+            'Italian',
+            'Jazz Studies (Special Concentration)',
+            'Jewish Studies (Special Concentration)',
+            'Language Resource Center',
+            'Latin American and Caribbean Studies',
+            'Linguistics',
+            'Mathematics',
+            'Mathematics-Statistics',
+            'Medieval and Renaissance Studies (Special Concentration)',
+            'Middle Eastern, South Asian, and African Studies',
+            'Music',
+            'Neuroscience and Behavior',
+            'Philosophy',
+            'Physical Education',
+            'Physics',
+            'Political Science',
+            'Political Science-Statistics',
+            'Portuguese Studies',
+            'Psychology',
+            'Public Health (Special Concentration)',
+            'Operations Research',
+            'Regional Studies',
+            'Religion',
+            'Russian Language and Culture',
+            'Russian Literature',
+            'Russian Literature and Culture',
+            'Slavic (Non-Russian) Language and Culture',
+            'Slavic Studies',
+            'Sociology',
+            'Statistics',
+            'Sustainable Development',
+            'Urban Studies',
+            'Visual Arts',
+            'Womens and Gender Studies',
+            'Yiddish Studies']), {}, {:class => 'form-control col-1'} %>
+        <% end %>
+      </div>
+      <br>
+      <div class = "field1 pb-3">
+        <%= submit_tag 'Next', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  
+  <% end %>
+  </div>
+
+</html>

@@ -71,6 +71,9 @@
 
   <ul class = "nav justify-content-end">  
     <li class = "nav-item">
+      <%= link_to 'Edit Profile', users_path(:uni => @uni), :class => 'nav-link' %>
+    </li>
+    <li class = "nav-item">
       <%= link_to 'Sign Out', articles_path, :class => 'nav-link' %>
     </li>
   </ul>

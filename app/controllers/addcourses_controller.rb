@@ -6,7 +6,22 @@ class AddcoursesController < ApplicationController
     end
 
     def show
-      @courses = Course.search(params[:search])
+      @uni = session[:uni]
+      
+      @thetakencourses = Addcourse.where(uni: @uni)
+      @taken_courses = []
+      @thetakencourses.each do |tc|
+        @taken_courses << tc.course
+      end
+
+      unfiltered_courses = Course.search(params[:search])
+      @courses = []
+      unfiltered_courses.each do |unf_c|
+        if not @taken_courses.include? unf_c.course
+          @courses << unf_c
+        end
+      end
+
     end
 
     def new
