@@ -276,6 +276,27 @@
           <% end %>
           </ul>
         <% end %>
+
+        <% if @course_recs.length() > 0 %>
+          <h5>Recommended Courses:</h5>
+          <ul>
+          <% @course_recs.each do |crc| %>
+            <div class = "my-row row">
+              <div class = "col-md-5 pb-2">
+                <p><%= link_to courses_path(:id => crc.id) do %> 
+                <%= crc.course %>
+                <% end %></p>
+              </div>
+              <div class = "col-md-4 pb-2"> 
+                <p class = "emphasis"><%= crc.time %></p>
+              </div>
+              <div class = "col-md-3 pb-2">
+                <%= button_to "Add", dashboards_path(:id => crc.id), method: "put", :class => 'btn btn-outline-primary' %> 
+              </div>
+          </div>
+          <% end %>
+          </ul>
+        <% end %>
       </div>
 
 

@@ -62,25 +62,41 @@ class DashboardsController < ApplicationController
       if @user
         @theschoolreqs = Schoolreq.search(@user.school)
         @school_reqs = []
-        @theschoolreqs.each do |sr|
-          if not @taken_courses.include? sr.course and not @added_courses.include? sr.course 
-            @school_reqs << Course.find_by(course: sr.course)
+        if @theschoolreqs
+          @theschoolreqs.each do |sr|
+            if not @taken_courses.include? sr.course and not @added_courses.include? sr.course 
+              @school_reqs << Course.find_by(course: sr.course)
+            end
           end
         end
 
         @theminorreqs = Minorreq.search(@user.minor)
         @minor_reqs = []
-        @theminorreqs.each do |mnr|
-          if not @taken_courses.include? mnr.course and not @added_courses.include? mnr.course 
-            @minor_reqs << Course.find_by(course: mnr.course)
+        if @theminorreqs
+          @theminorreqs.each do |mnr|
+            if not @taken_courses.include? mnr.course and not @added_courses.include? mnr.course 
+              @minor_reqs << Course.find_by(course: mnr.course)
+            end
           end
         end
 
         @themajorreqs = Majorreq.search(@user.major)
         @major_reqs = []
-        @themajorreqs.each do |mjr|
-          if not @taken_courses.include? mjr.course and not @added_courses.include? mjr.course 
-            @major_reqs << Course.find_by(course: mjr.course)
+        if @themajorreqs
+          @themajorreqs.each do |mjr|
+            if not @taken_courses.include? mjr.course and not @added_courses.include? mjr.course 
+              @major_reqs << Course.find_by(course: mjr.course)
+            end
+          end
+        end
+
+        @recommendations = Course.recommend_courses(@user.major, @user.minor)
+        @course_recs = []
+        if @recommendations
+          @recommendations.each do |r|
+            if not @taken_courses.include? r.course and not @added_courses.include? r.course 
+              @course_recs << Course.find_by(course: r.course)
+            end
           end
         end
 
