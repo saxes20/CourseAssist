@@ -91,7 +91,7 @@
             <p><%= course.course %></p>
             </div>
             <div class = "col-md-2 pb-2">
-            <%= button_to "Add", addcourses_path(:id => course.id), method: "put", :class => 'btn btn-outline-primary' %> 
+            <%= button_to "Add", addcourses_path(:id => course.id), id: 'add ' + course.course, method: "put", :class => 'btn btn-outline-primary' %> 
             </div>
         </div>
     <% end %>

@@ -256,7 +256,7 @@
         <% end %>
         </ul>
 
-        <% if @minor_reqs.length() > 0 %>
+        <% if @user.minor != 'None' %>
           <h5><%= @user.minor %> Minor Requirements:</h5>
           <ul>
           <% @minor_reqs.each do |mnr| %>

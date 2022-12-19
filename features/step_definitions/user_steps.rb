@@ -52,13 +52,13 @@ Then /^the school of "(.+)" should be "(.+)"/ do |uni, school|
   expect(user.school).to match(school)
 end
 
-Then /^there exists a record that "(.+)" took "(.+)" in "(.+)" "(.+)"/ do |uni, course, semester, year|
-  ac = Addcourse.find_by(uni: uni, course: course, semester: semester, year: year)
+Then /^there exists a record that "(.+)" took "(.+)"/ do |uni, course|
+  ac = Addcourse.find_by(uni: uni, course: course)
   expect(ac.nil?).to be false
 end
 
-Then /^there does not exist a record that "(.+)" took "(.+)" in "(.+)" "(.+)"/ do |uni, course, semester, year|
-  ac = Addcourse.find_by(uni: uni, course: course, semester: semester, year: year)
+Then /^there does not exist a record that "(.+)" took "(.+)"/ do |uni, course|
+  ac = Addcourse.find_by(uni: uni, course: course)
   expect(ac.nil?).to be true
 end
 

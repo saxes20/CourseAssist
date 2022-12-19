@@ -12,11 +12,13 @@ Background: users in database
     | Sameer     | Saxena      | 2024         | SEAS   | Computer Science | Economics | ss6167 |
 
     Given the following courses exist:
-    | name                                | course                                       | prof         | preReqs         | description             | reviews      | currentlyOffered    |
-    | Introduction to Computer Science    | COMS 1004 Introduction to Computer Science   | Mike Do      | COMS W3134      | Introductory  CS class  | Great class! | 1                   |
-    | Introduction to Data Structures     | COMS 3134 Introduction to Data Structures    | Mike Do      | COMS 3157       | Easy CS class           | Great class! | 1                   |
-    | Principles of Economics             | ECON UN1105 Principles of Economics          | James Cho    |                 |                         | Don't take!  | 1                   |
-    | Advanced Programming                | COMS 3157 Advanced Programming               | Jae Woo Lee  |                 |                         |              |                     |
+    | name                                | course                                        | prof         | preReqs         | description                     |
+    | Introduction to Computer Science    | COMS W1004 Introduction to Computer Science   | Mike Do      |                 | Introductory  CS class          |
+    | Introduction to Data Structures     | COMS W3134 Introduction to Data Structures    | Mike Do      | COMS W1004      | Basic data structures           |
+    | Principles of Economics             | ECON UN1105 Principles of Economics           | James Cho    |                 |                                 |
+    | Advanced Programming                | COMS W3157 Advanced Programming               | Jae Woo Lee  | COMS W3134      |                                 |
+    | The Art of Engineering              | ENGI E1102 The Art of Engineering             | Mike Do      |                 |                                 | 
+    | Masterpieces of Western Art         | HUMA UN1121 Masterpieces of Western Art       | J Harvard    |                 |                                 | 
 
 
     And I am on the home page
@@ -48,17 +50,20 @@ Scenario: new user adds past courses to database
     And I select "Computer Science" from "Major" 
     And I select "Economics" from "Minor" 
     And I press "Next"
-    And I select "ECON UN1105 Principles of Economics" from "Course"
-    And I select "Fall" from "Semester"
-    And I select "2022" from "Year"
-    And I press "Add"
-    And I select "COMS 3157 Advanced Programming" from "Course" 
-    And I select "Spring" from "Semester"
-    And I select "2021" from "Year"
-    And I press "Add"
-    Then there exists a record that "agh2172" took "ECON UN1105 Principles of Economics" in "Fall" "2022"
-    Then there exists a record that "agh2172" took "COMS 3157 Advanced Programming" in "Spring" "2021"
-    Then there does not exist a record that "agh2172" took "COMS 4000 Computer Networks" in "Fall" "2021"
+    And I fill in "searchbar" with "Economics"
+    And I press "Search"
+    And I press "add ECON UN1105 Principles of Economics"
+    Then I should see "Successfully added ECON UN1105 Principles of Economics"
+    And there exists a record that "agh2172" took "ECON UN1105 Principles of Economics"
+    Then I press "add COMS W1004 Introduction to Computer Science"
+    Then I should see "Successfully added COMS W1004 Introduction to Computer Science"
+    And there exists a record that "agh2172" took "COMS W1004 Introduction to Computer Science"
+    And there does not exist a record that "agh2172" took "COMS 4000 Computer Networks"
+    Then I press "Finish Registration"
+    Then I should see "Hi, Axel Henrikson!"
+    And I should not see "COMS W1004 Introduction to Computer Science"
+    And I should not see "ECON UN1105 Principles of Economics"
+    And I should see "COMS W3134 Introduction to Data Structures"
 
 
 

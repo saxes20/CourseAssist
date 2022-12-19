@@ -12,13 +12,13 @@ Background: users in database
     | Sameer     | Saxena      | 2024         | SEAS   | Economics        | Computer Science   | ss6167 |
 
     Given the following courses exist:
-    | name                                | course                                        | prof         | preReqs         | description                     | reviews      | currentlyOffered    |
-    | Introduction to Computer Science    | COMS W1004 Introduction to Computer Science   | Mike Do      |                 | Introductory  CS class          | Great class! | 1                   |
-    | Introduction to Data Structures     | COMS W3134 Introduction to Data Structures    | Mike Do      | COMS W1004      | Basic data structures           | Great class! | 1                   |
-    | Principles of Economics             | ECON UN1105 Principles of Economics           | James Cho    |                 |                                 | Don't take!  | 1                   |
-    | Advanced Programming                | COMS W3157 Advanced Programming               | Jae Woo Lee  | COMS W3134      |                                 |              |                     |
-    | The Art of Engineering              | ENGI E1102 The Art of Engineering             | Mike Do      |                 |                                 |              |                     | 
-    | Masterpieces of Western Art         | HUMA UN1121 Masterpieces of Western Art       | J Harvard    |                 |                                 |              |                     | 
+    | name                                | course                                        | prof         | preReqs         | description                     |
+    | Introduction to Computer Science    | COMS W1004 Introduction to Computer Science   | Mike Do      |                 | Introductory  CS class          |
+    | Introduction to Data Structures     | COMS W3134 Introduction to Data Structures    | Mike Do      | COMS W1004      | Basic data structures           |
+    | Principles of Economics             | ECON UN1105 Principles of Economics           | James Cho    |                 |                                 |
+    | Advanced Programming                | COMS W3157 Advanced Programming               | Jae Woo Lee  | COMS W3134      |                                 |
+    | The Art of Engineering              | ENGI E1102 The Art of Engineering             | Mike Do      |                 |                                 | 
+    | Masterpieces of Western Art         | HUMA UN1121 Masterpieces of Western Art       | J Harvard    |                 |                                 | 
 
     Given the following majorreqs exist:
     | subject              | course                                      |
