@@ -39,4 +39,10 @@ describe AddcoursesController do
       expect(taken).to include('ENGI E1102 The Art of Engineering')
 
     end
+    it 'updates user course successfully' do
+      get :update, params: {id:4}, session: {uni: 'agh2172'}
+      newCourse = assigns(:addcourse)
+      expect(newCourse.uni).to eq ('agh2172')
+      expect(newCourse.course).to eq('HUMA UN1123 Masterpieces of Western Music')
+    end
 end
