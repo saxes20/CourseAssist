@@ -124,9 +124,10 @@ class DashboardsController < ApplicationController
       @course = Course.find(id)
       @uni = session[:uni]
       if params[:remove_from_schedule]
-        Studentschedule.where(uni: @uni, course: @course.course).destroy_all
+        @removed = Studentschedule.where(uni: @uni, course: @course.course).destroy_all
       else
         schedule_course = Studentschedule.create!(uni: @uni, course: @course.course)
+        @added = schedule_course
         puts schedule_course.uni
         puts schedule_course.course
       end
