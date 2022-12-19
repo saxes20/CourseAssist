@@ -79,7 +79,7 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
-    click_link(link)
+    first(:link, link).click
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
@@ -89,10 +89,3 @@ end
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   expect(page).not_to have_content(text)
 end
-
-
-
-
-
-
-
