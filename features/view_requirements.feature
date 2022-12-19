@@ -52,9 +52,7 @@ Scenario: user is in CC, majoring in Economics and minoring in Computer Science
     And I fill in "user_pwd" with "abcdef"
     And I press "Enter"
     Then I should see "HUMA UN1121"
-    And I should not see "ENGI E1102"
     And I should see "ECON UN1105"
-    And I should not see "COMS W1004"
     And I should see "COMS W3134"
 
 Scenario: user is in SEAS, majoring in Computer Science and minoring in Economics
@@ -63,9 +61,6 @@ Scenario: user is in SEAS, majoring in Computer Science and minoring in Economic
     And I fill in "user_pwd" with "123456"
     And I press "Enter"
     Then I should see "ENGI E1102"
-    And I should not see "HUMA UN1121"
-    And I should not see "COMS W1004"
-    And I should not see "COMS W3134"
     And I should see "COMS W3157"
     And I should see "ECON UN1105"
 
