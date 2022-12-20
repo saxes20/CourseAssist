@@ -7,9 +7,9 @@ Feature: create a new user
 Background: users in database
 
     Given the following users exist:
-    | first      | last        | year         | school | major            | minor     | uni    |
-    | Jackson    | Roberts     | 2023         | CC     | Computer Science | Economics | jr3876 |
-    | Sameer     | Saxena      | 2024         | SEAS   | Computer Science | Economics | ss6167 |
+    | first      | last        | year         | school | major            | minor            | uni    | password    |
+    | Jackson    | Roberts     | 2023         | SEAS   | Computer Science | Economics        | jr3876 | 123456      |
+    | Sameer     | Saxena      | 2024         | CC     | Economics        | Computer Science | ss6167 | abcdef      |
 
     Given the following courses exist:
     | name                                | course                                        | prof         | preReqs         | description                     |
@@ -64,6 +64,5 @@ Scenario: new user adds past courses to database
     And I should not see "COMS W1004 Introduction to Computer Science"
     And I should not see "ECON UN1105 Principles of Economics"
     And I should see "COMS W3134 Introduction to Data Structures"
-
 
 

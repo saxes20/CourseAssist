@@ -37,6 +37,12 @@ Given /the following minreqs exist/ do |minorreqs_table|
   end
 end
 
+Given /the following coursereviews exist/ do |coursereviews_table|
+  coursereviews_table.hashes.each do |cr|
+    Coursereview.create(cr)
+  end
+end
+
 Then /^the major of "(.+)" should be "(.+)"/ do |uni, major|
   user = User.find_by(uni: uni)
   expect(user.major).to match(major)
@@ -61,6 +67,22 @@ Then /^there does not exist a record that "(.+)" took "(.+)"/ do |uni, course|
   ac = Addcourse.find_by(uni: uni, course: course)
   expect(ac.nil?).to be true
 end
+
+Then /^there exists a record that "(.+)" is taking "(.+)"/ do |uni, course|
+  ss = Studentschedule.find_by(uni: uni, course: course)
+  expect(ss.nil?).to be false
+end
+
+Then /^there does not exist a record that "(.+)" is taking "(.+)"/ do |uni, course|
+  ss = Studentschedule.find_by(uni: uni, course: course)
+  expect(ss.nil?).to be true
+end
+
+Then /^should have "(.+)" with text "(.+)"/ do |id, text|
+  section = find(id)
+  expect(section).to have_text(text)
+end
+
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)

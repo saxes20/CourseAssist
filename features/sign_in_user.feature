@@ -25,7 +25,6 @@ Scenario: sign in an existing user with right password
     Then I should not see "User not found. Please sign up first."
     Then I should not see "Wrong password. Please try again."
 
-
 Scenario: sign in a user that does not exist
     And I fill in "user_uni" with "agh2172"
     And I press "Enter"

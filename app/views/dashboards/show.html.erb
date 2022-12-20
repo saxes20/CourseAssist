@@ -105,7 +105,7 @@
           <p class = "emphasis"><%= course.time %></p>
         </div>
         <div class = "col-md-3 pb-2">
-          <%= button_to "Add", dashboards_path(:id => course.id), method: "put", :class => 'btn btn-outline-primary' %> 
+          <%= button_to "Add", dashboards_path(:id => course.id), id: 'add from search ' + course.course, method: "put", :class => 'btn btn-outline-primary' %> 
         </div>
       </div>
     <% end %>
@@ -130,7 +130,7 @@
             <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
           </div>
           <div class = "col-md-3">
-            <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
+            <%= button_to "Remove", dashboards_path(:id => s.id), id: 'remove1 ' + s.course, method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
       </div>
         <% end %>
@@ -149,7 +149,7 @@
             <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
           </div>
           <div class = "col-md-3">
-            <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
+            <%= button_to "Remove", dashboards_path(:id => s.id), id: 'remove2 ' + s.course, method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
         </div>
         <% end %>
@@ -168,7 +168,7 @@
             <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
           </div>
           <div class = "col-md-3">
-            <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
+            <%= button_to "Remove", dashboards_path(:id => s.id), id: 'remove3 ' + s.course, method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
         </div>
         <% end %>
@@ -187,7 +187,7 @@
             <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
           </div>
           <div class = "col-md-3">
-            <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
+            <%= button_to "Remove", dashboards_path(:id => s.id), id: 'remove4 ' + s.course, method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
         </div>
         <% end %>
@@ -206,7 +206,7 @@
             <p class = "emphasis"><%= s.time.split(' ')[-1] %></p>
           </div>
           <div class = "col-md-3">
-            <%= button_to "Remove", dashboards_path(:id => s.id), method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
+            <%= button_to "Remove", dashboards_path(:id => s.id), id: 'remove5 ' + s.course, method: "put", :name => 'remove_from_schedule', :class => 'btn btn-outline-primary'%> 
           </div>
         </div>
         <% end %>
@@ -231,7 +231,7 @@
               <p class = "emphasis"><%= sr.time %></p>
             </div>
             <div class = "col-md-3 pb-2">
-              <%= button_to "Add", dashboards_path(:id => sr.id), method: "put", :class => 'btn btn-outline-primary' %> 
+              <%= button_to "Add", dashboards_path(:id => sr.id), id: 'add schoolreq ' + sr.course, method: "put", :class => 'btn btn-outline-primary' %> 
             </div>
           </div>
         <% end %>
@@ -250,7 +250,7 @@
               <p class = "emphasis"><%= mjr.time %></p>
             </div>
             <div class = "col-md-3 pb-2">
-              <%= button_to "Add", dashboards_path(:id => mjr.id), method: "put", :class => 'btn btn-outline-primary' %> 
+              <%= button_to "Add", dashboards_path(:id => mjr.id), id: 'add majorreq ' + mjr.course, method: "put", :class => 'btn btn-outline-primary' %> 
             </div>
           </div>
         <% end %>
@@ -270,7 +270,7 @@
                 <p class = "emphasis"><%= mnr.time %></p>
               </div>
               <div class = "col-md-3 pb-2">
-                <%= button_to "Add", dashboards_path(:id => mnr.id), method: "put", :class => 'btn btn-outline-primary' %> 
+                <%= button_to "Add", dashboards_path(:id => mnr.id), id: 'add minorreq ' + mnr.course, method: "put", :class => 'btn btn-outline-primary' %> 
               </div>
           </div>
           <% end %>
@@ -291,7 +291,7 @@
                 <p class = "emphasis"><%= crc.time %></p>
               </div>
               <div class = "col-md-3 pb-2">
-                <%= button_to "Add", dashboards_path(:id => crc.id), method: "put", :class => 'btn btn-outline-primary' %> 
+                <%= button_to "Add", dashboards_path(:id => crc.id), id: 'add courserec ' + crc.course, method: "put", :class => 'btn btn-outline-primary' %> 
               </div>
           </div>
           <% end %>
